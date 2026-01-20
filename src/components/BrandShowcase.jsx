@@ -122,8 +122,8 @@ const BrandShowcase = () => {
                 
                 {/* Left: Brand Identity */}
                 <div className="md:col-span-4 flex flex-col justify-center border-r border-white/10 h-full pr-8">
-                    <div className="mb-8 p-4 bg-white/5 inline-block w-max backdrop-blur-sm">
-                        <img src={brand.image} alt={brand.name} className="h-12 md:h-20 w-auto object-contain brightness-0 invert" />
+                    <div className="mb-8 inline-block w-max">
+                        <img src={brand.image} alt={brand.name} className="h-12 md:h-20 w-auto object-contain" />
                     </div>
                     <h2 className="text-4xl md:text-6xl font-serif mb-4 animate-up">{brand.name}</h2>
                     <p className="text-xl text-accent font-sans uppercase tracking-widest mb-6 animate-up">{brand.tagline}</p>
@@ -161,8 +161,18 @@ const BrandShowcase = () => {
              </div>
 
              {/* Slide Index Indicator */}
-             <div className="absolute bottom-10 right-10 z-30 font-mono text-4xl text-white/10 select-none">
-                0{i + 1}
+             <div className="absolute bottom-10 right-10 z-30 flex flex-col items-end gap-2 text-white/10 select-none">
+                <span className="font-mono text-4xl">0{i + 1}</span>
+             </div>
+             
+             {/* Interaction Button */}
+             <div className="absolute bottom-10 left-10 z-30">
+                <button 
+                    onClick={() => window.location.href = '/brands'} 
+                    className="px-6 py-2 border border-white/20 hover:bg-white hover:text-black transition-colors duration-300 text-xs uppercase tracking-widest"
+                >
+                    Know More
+                </button>
              </div>
 
           </div>
