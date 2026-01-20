@@ -13,7 +13,7 @@ const Home = () => {
             <About />
             <LegacyTimeline />
             <BrandShowcase />
-            <Manufacturing />
+            {/* Manufacturing moved to Innovation Page */}
         </main>
     );
 };

@@ -57,15 +57,15 @@ const LegacyTimeline = () => {
     <section ref={sectionRef} className="py-24 bg-black text-white relative flex flex-col items-center overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 z-0 opacity-10" 
-           style={{ backgroundImage: 'linear-gradient(to right, #333 1px, transparent 1px), linear-gradient(to bottom, #333 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+           style={{ backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
       </div>
 
       <div className="container relative z-10 w-full max-w-5xl">
-        <h2 className="text-center text-xs font-bold uppercase tracking-[0.4em] mb-20 text-gray-500 font-sans">Legacy / Timeline</h2>
+        <h2 className="text-center text-xs font-bold uppercase tracking-[0.4em] mb-20 text-slate-500 font-sans">Legacy / Timeline</h2>
         
         <div className="relative">
           {/* Central Line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-[1px] bg-[#222]">
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 h-full w-[1px] bg-white/10">
              <div ref={lineRef} className="w-full bg-accent"></div>
           </div>
 

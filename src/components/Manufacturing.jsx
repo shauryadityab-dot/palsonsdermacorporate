@@ -87,7 +87,7 @@ const Manufacturing = () => {
                 {processSteps.map((step, i) => (
                     <div key={i} className="relative pl-8 border-l border-black/20 group hover:border-black transition-colors duration-300">
                         <span className="absolute -left-3 top-0 text-4xl font-bold font-serif bg-[#f5f5f5] pr-2 text-black/20 group-hover:text-black transition-colors">{step.num}</span>
-                        <h4 className="text-lg font-bold uppercase tracking-wider mb-2 mt-2">{step.title}</h4>
+                        <h4 className="text-lg font-bold uppercase tracking-wider mb-2 mt-2 ml-1">{step.title}</h4>
                         <p className="text-sm opacity-70 leading-relaxed font-mono">{step.desc}</p>
                     </div>
                 ))}

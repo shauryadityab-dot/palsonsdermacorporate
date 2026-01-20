@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import BrandsPage from './pages/BrandsPage';
+import InnovationPage from './pages/InnovationPage';
 // Lenis for smooth scrolling is often a good pair with GSAP, but we'll stick to native + GSAP scrub for now as requested "performance optimized". 
 // Actually, let's just make sure the scroll is smooth.
 
@@ -23,11 +24,12 @@ function App() {
                 <a href="/" className="text-xl font-bold tracking-tighter uppercase pointer-events-auto cursor-pointer font-sans no-underline text-white">PALSONS DERMA</a>
                 
                 <div className="hidden md:flex gap-8 pointer-events-auto">
-                    {['Our Brands', 'Innovation', 'Our People'].map((item) => (
+                    {['Our Brands', 'Our People'].map((item) => (
                         <a key={item} href={`/#${item.toLowerCase().replace(' ', '-')}`} className="uppercase text-xs tracking-widest hover:text-white/70 transition-colors">
                             {item}
                         </a>
                     ))}
+                    <a href="/innovation" className="uppercase text-xs tracking-widest hover:text-white/70 transition-colors">Innovation</a>
                     {/* Explicit link to Portfolio for easy access */}
                     <a href="/brands" className="uppercase text-xs tracking-widest hover:text-white/70 transition-colors">Portfolio</a>
                 </div>
@@ -38,10 +40,11 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/brands" element={<BrandsPage />} />
+                <Route path="/innovation" element={<InnovationPage />} />
             </Routes>
             
-            <footer className="py-20 border-t border-[#333] bg-black text-center relative z-10">
-                <p className="text-xs text-gray-600 uppercase tracking-widest">© 2026 Palsons Derma. All Rights Reserved.</p>
+            <footer className="py-20 border-t border-white/10 bg-black text-center relative z-10">
+                <p className="text-xs text-slate-500 uppercase tracking-widest">© 2026 Palsons Derma. All Rights Reserved.</p>
             </footer>
         </div>
     </Router>

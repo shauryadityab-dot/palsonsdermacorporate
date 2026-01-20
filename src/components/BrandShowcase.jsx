@@ -19,9 +19,9 @@ const BrandShowcase = () => {
         { value: '12 Weeks', label: 'Visible Results' },
         { value: 'Clinical', label: 'Dermatologist Tested' }
       ],
-      testDetails: 'In a double-blind placebo-controlled study, Qsera demonstrated statistically significant increase in hair density and thickness markers. The proprietary peptide complex targets the anagen phase of the hair cycle.',
-      image: '/assets/Qsera.webp', // Using logo for now, but in a real design we might want a product shot or tech viz
-      bgImage: '/assets/pexels-chloe-amaya-1047565-4079215.jpg' // Reusing hero BG for texture
+      aboutBrand: 'Qsera develops clinical-grade skincare solutions designed for specific dermatological issues such as pigmentation, melasma, and uneven skin tone. The brand focuses on targeted actives, high-performance formulations, and visible results. Qsera is popular among dermatologists because its products are formulated to work well with treatment plans and sensitive skin.',
+      image: '/assets/Qsera.webp', 
+      bgImage: '/assets/pexels-chloe-amaya-1047565-4079215.jpg' 
     },
     {
       id: 'nmfe',
@@ -33,7 +33,7 @@ const BrandShowcase = () => {
         { value: '100%', label: 'Non-Comedogenic' },
         { value: 'Safe', label: 'For Sensitive Skin' }
       ],
-      testDetails: 'Clinical corneometry showed a 150% increase in skin hydration levels 1 hour after application, sustained for 24 hours. Validated for atopic dermatitis adjunctive care.',
+      aboutBrand: 'NMFE is a dermatology-focused skincare brand built around science-backed formulations. The products target everyday skin concerns like acne, pigmentation, dryness, and sensitivity with dermatologist-approved ingredients. The brand positions itself as reliable, minimal, and results-driven — aiming for effective skincare without unnecessary complexity.',
       image: '/assets/nmfe.webp',
       bgImage: '/assets/pexels-ron-lach-10222458.jpg'
     },
@@ -47,7 +47,7 @@ const BrandShowcase = () => {
         { value: '4 Weeks', label: 'Tone Correction' },
         { value: 'Active', label: 'Melanin Inhibition' }
       ],
-      testDetails: 'In-vitro studies confirm 60% reduction in tyrosinase activity. Clinical trials demonstrate visible reduction in melasma and PIH scores within 28 days of regular usage.',
+      aboutBrand: 'Whether it’s tackling stubborn acne, reversing signs of ageing, addressing pigmentation, or managing hair loss, our expert dermatologists at Wizderm offer personalized consultations and cutting-edge treatments tailored to your unique skin and hair care needs.\nExperience world-class care designed to help you look and feel your best!!',
       image: '/assets/wizderm.webp',
       bgImage: '/assets/pexels-polina-kovaleva-6543617.jpg'
     },
@@ -61,7 +61,7 @@ const BrandShowcase = () => {
         { value: 'PA++++', label: 'UVA Protection' },
         { value: '8h', label: 'Water Resistant' }
       ],
-      testDetails: 'Tested under extreme UV index conditions, Neolayr Pro maintains 95% of its photoprotective capacity after 4 hours of exposure/water immersion. Non-irritating confirmed.',
+      aboutBrand: 'NEOLAYR PRO means a new layer of skin for the pro in you. At the heart of NEOLAYR PRO lies a legacy inherited from Neolayr, a brand born in 2020 from the stable of Palsons Derma with 30 years of expertise in dermatology with a singular mission: to elevate skincare to an experience that nourishes both body and soul. Our core essence is built on authenticity, setting us apart amidst a sea of skincare brands.',
       image: '/assets/neolayrprologo.webp',
       bgImage: '/assets/pexels-mandiri-abadi-396768996-14805033.jpg'
     }
@@ -109,7 +109,7 @@ const BrandShowcase = () => {
     <div ref={componentRef} id="our-brands" className="relative overflow-hidden bg-black text-white">
       <div ref={sliderRef} className="flex w-[400%] h-screen">
         {brands.map((brand, i) => (
-          <div key={brand.id} className="brand-slide w-screen h-screen flex-shrink-0 relative flex overflow-hidden border-r border-[#333]">
+          <div key={brand.id} className="brand-slide w-screen h-screen flex-shrink-0 relative flex overflow-hidden border-r border-white/10">
              
              {/* Background with parallax/overlay */}
              <div className="absolute inset-0 z-0">
@@ -144,17 +144,12 @@ const BrandShowcase = () => {
                     </div>
 
                     {/* Scientific Context */}
-                    <div className="flex flex-col justify-center bg-white/5 p-8 backdrop-blur-md border border-white/10 animate-up">
-                        <h3 className="text-sm uppercase tracking-widest border-b border-white/20 pb-2 mb-4 text-accent">Clinical Validation</h3>
-                        <p className="font-mono text-sm leading-relaxed text-white/80">
-                            "{brand.testDetails}"
+                    {/* Scientific Context */}
+                    <div className="flex flex-col justify-center bg-white/5 p-8 backdrop-blur-md border border-white/10">
+                        <h3 className="text-sm uppercase tracking-widest border-b border-white/20 pb-2 mb-4 text-accent">About The Brand</h3>
+                        <p className="font-mono text-xs md:text-sm leading-relaxed text-white/80 whitespace-pre-line">
+                            {brand.aboutBrand}
                         </p>
-                        <div className="mt-8 flex gap-4">
-                             <div className="h-1 w-full bg-white/10 overflow-hidden relative">
-                                <div className="absolute top-0 left-0 h-full bg-accent w-3/4"></div>
-                             </div>
-                        </div>
-                        <span className="text-[10px] mt-2 text-right opacity-50 uppercase">Analysis Complete</span>
                     </div>
 
                 </div>
