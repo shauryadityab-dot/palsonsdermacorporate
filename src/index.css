@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black: #050505;
+  --color-charcoal: #1a1a1a;
+  --color-off-white: #f5f5f5;
+  --color-accent: #00aaff;
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-mono: monospace;
+}
+
+/* Custom Utilities */
+.text-stroke {
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+}
+
+/* Global Reset for No Curves */
+button, input, textarea, div, section, img, video {
+  border-radius: 0 !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  background: var(--color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 0;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
