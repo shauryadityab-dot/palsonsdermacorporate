@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import ResearchLabs from '../components/ResearchLabs';
+
 import GlobalSourcing from '../components/GlobalSourcing';
 import Manufacturing from '../components/Manufacturing';
+import ResearchLabs from '../components/ResearchLabs';
 
 const InnovationPage = () => {
     

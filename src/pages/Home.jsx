@@ -11,6 +11,7 @@ const Home = () => {
         <main>
             <Hero />
             <About />
+            {/* <Brands /> */}
             <LegacyTimeline />
             <BrandShowcase />
             {/* Manufacturing moved to Innovation Page */}

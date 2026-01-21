@@ -21,7 +21,6 @@ const ResearchLabs = () => {
           pin: true,
           scrub: 1,
           snap: 1 / (sections.length - 1),
-          // Scroll distance = number of extra screens * screen width
           end: () => "+=" + (containerRef.current.offsetWidth * (sections.length - 1)),
         }
       });
@@ -87,51 +86,53 @@ const ResearchLabs = () => {
       </div>
 
       {/* Horizontal Scroll Test Laboratory */}
-      <div ref={containerRef} className="h-screen w-full overflow-hidden flex relative bg-[#0B1121]">
+      <div ref={containerRef} className="h-screen w-full overflow-hidden flex flex-col relative bg-[#0B1121]">
           
-          {/* Static Header / Label */}
-          <div className="absolute top-8 left-8 z-20">
+          {/* Header / Label - Relative positioning to sit above cards */}
+          <div className="w-full px-8 pt-32 pb-8 z-20 flex-shrink-0">
               <h3 className="text-xl uppercase tracking-widest font-bold">Research & Verification</h3>
               <p className="font-mono text-xs opacity-50 mt-1">LIVE DATA STREAM // LAB_04</p>
           </div>
 
-          {/* Cards Wrapper */}
-          <div ref={scrollContainerRef} className="flex h-full w-[400%]">
-              {tests.map((test, i) => (
-                  <div key={i} className="test-card w-screen h-full flex flex-col justify-center items-center relative border-r border-white/5">
-                      
-                      {/* Background Tech Elements */}
-                      <div className="absolute inset-0 opacity-10 pointer-events-none">
-                          <div className="absolute top-1/2 left-0 w-full h-[1px] bg-accent"></div>
-                          <div className="absolute top-0 left-1/2 h-full w-[1px] bg-accent"></div>
-                          <div className="absolute top-[20%] right-[20%] w-32 h-32 border border-dashed border-white rounded-full animate-spin-slow"></div>
-                      </div>
+          {/* Cards Wrapper - Takes remaining height */}
+          <div className="flex-1 w-full relative">
+            <div ref={scrollContainerRef} className="flex h-full w-[400%]">
+                {tests.map((test, i) => (
+                    <div key={i} className="test-card w-screen h-full flex flex-col justify-center items-center relative border-r border-white/5">
+                        
+                        {/* Background Tech Elements */}
+                        <div className="absolute inset-0 opacity-10 pointer-events-none">
+                            <div className="absolute top-1/2 left-0 w-full h-[1px] bg-accent"></div>
+                            <div className="absolute top-0 left-1/2 h-full w-[1px] bg-accent"></div>
+                            <div className="absolute top-[20%] right-[20%] w-32 h-32 border border-dashed border-white rounded-full animate-spin-slow"></div>
+                        </div>
 
-                      <div className="relative z-10 text-center p-8 max-w-2xl bg-[#0B1121]/80 backdrop-blur-md border border-white/10 shadow-2xl">
-                          <div className="inline-block px-4 py-1 border border-accent text-accent text-xs font-mono mb-8">
-                              TEST PROTOCOL _{test.id}
-                          </div>
-                          
-                          <h4 className="text-5xl md:text-7xl font-bold mb-4">{test.result}</h4>
-                          <h5 className="text-xl uppercase tracking-widest mb-6 opacity-80">{test.name}</h5>
-                          
-                          <p className="text-white/60 font-mono text-sm leading-7">
-                              {test.desc}
-                          </p>
+                        <div className="relative z-10 text-center p-8 max-w-2xl bg-[#0B1121]/80 backdrop-blur-md border border-white/10 shadow-2xl">
+                            <div className="inline-block px-4 py-1 border border-accent text-accent text-xs font-mono mb-8">
+                                TEST PROTOCOL _{test.id}
+                            </div>
+                            
+                            <h4 className="text-5xl md:text-7xl font-bold mb-4">{test.result}</h4>
+                            <h5 className="text-xl uppercase tracking-widest mb-6 opacity-80">{test.name}</h5>
+                            
+                            <p className="text-white/60 font-mono text-sm leading-7">
+                                {test.desc}
+                            </p>
 
-                          {/* Data Bars */}
-                          <div className="mt-8 flex gap-1 justify-center h-8 items-end">
-                              {[...Array(10)].map((_, idx) => (
-                                  <div key={idx} 
-                                       className="w-2 bg-accent/30" 
-                                       style={{ height: `${Math.random() * 100}%` }}>
-                                  </div>
-                              ))}
-                          </div>
-                      </div>
+                            {/* Data Bars */}
+                            <div className="mt-8 flex gap-1 justify-center h-8 items-end">
+                                {[...Array(10)].map((_, idx) => (
+                                    <div key={idx} 
+                                         className="w-2 bg-accent/30" 
+                                         style={{ height: `${Math.random() * 100}%` }}>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
 
-                  </div>
-              ))}
+                    </div>
+                ))}
+            </div>
           </div>
 
           {/* Progress Indicator */}
@@ -142,7 +143,6 @@ const ResearchLabs = () => {
                 </div>
             ))}
           </div>
-
       </div>
     </div>
   );

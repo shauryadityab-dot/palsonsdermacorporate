@@ -1,13 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import React from 'react';
 
 const BrandShowcase = () => {
-  const componentRef = useRef(null);
-  const sliderRef = useRef(null);
-
   const brands = [
     {
       id: 'qsera',
@@ -67,49 +60,18 @@ const BrandShowcase = () => {
     }
   ];
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      // Horizontal Scroll
-      let slides = gsap.utils.toArray(".brand-slide");
-      
-      gsap.to(slides, {
-        xPercent: -100 * (slides.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: componentRef.current,
-          pin: true,
-          scrub: 1,
-          snap: 1 / (slides.length - 1),
-          end: () => "+=" + sliderRef.current.offsetWidth
-        }
-      });
-      
-      // Internal animations for each slide (Optional polish)
-      slides.forEach((slide) => {
-         gsap.from(slide.querySelectorAll('.animate-up'), {
-             y: 50,
-             opacity: 0,
-             duration: 0.8,
-             stagger: 0.1,
-             scrollTrigger: {
-                 trigger: slide,
-                 containerAnimation: gsap.getById("horizontal-scroll"), // Check GSAP docs if this ID is needed for tracking, mostly 'xPercent' tween is main one.
-                 start: "left center",
-                 toggleActions: "play none none reverse"
-             }
-         })
-      });
-
-    }, componentRef);
-    
-    return () => ctx.revert();
-  }, []);
+  // Duplicate for marquee loop
+  const brandSet = [...brands, ...brands];
 
   return (
-    <div ref={componentRef} id="our-brands" className="relative overflow-hidden bg-black text-white">
-      <div ref={sliderRef} className="flex w-[400%] h-screen">
-        {brands.map((brand, i) => (
-          <div key={brand.id} className="brand-slide w-screen h-screen flex-shrink-0 relative flex overflow-hidden border-r border-white/10">
+    <div id="our-brands" className="relative overflow-hidden bg-black text-white">
+      {/* Marquee Wrapper */}
+      <div 
+        className="flex animate-marquee hover:[animation-play-state:paused]"
+        style={{ animationDuration: '120s' }} // Slow speed for readability
+      >
+        {brandSet.map((brand, i) => (
+          <div key={`${brand.id}-${i}`} className="w-[85vw] md:w-[60vw] h-screen flex-shrink-0 relative flex overflow-hidden border-r border-white/10">
              
              {/* Background with parallax/overlay */}
              <div className="absolute inset-0 z-0">
@@ -121,43 +83,29 @@ const BrandShowcase = () => {
              <div className="container relative z-20 mx-auto px-6 grid grid-cols-1 md:grid-cols-12 h-full items-center gap-8">
                 
                 {/* Left: Brand Identity */}
-                <div className="md:col-span-4 flex flex-col justify-center border-r border-white/10 h-full pr-8">
+                <div className="md:col-span-7 flex flex-col justify-center h-full pr-0 md:pr-8">
                     <div className="mb-8 inline-block w-max">
-                        <img src={brand.image} alt={brand.name} className="h-12 md:h-20 w-auto object-contain" />
+                        <img src={brand.image} alt={brand.name} className="h-10 md:h-16 w-auto object-contain" />
                     </div>
-                    <h2 className="text-4xl md:text-6xl font-serif mb-4 animate-up">{brand.name}</h2>
-                    <p className="text-xl text-accent font-sans uppercase tracking-widest mb-6 animate-up">{brand.tagline}</p>
-                    <p className="text-white/70 text-lg leading-relaxed animate-up">{brand.description}</p>
+                    <h2 className="text-3xl md:text-5xl font-serif mb-4">{brand.name}</h2>
+                    <p className="text-lg text-accent font-sans uppercase tracking-widest mb-6">{brand.tagline}</p>
+                    <p className="text-white/70 text-base leading-relaxed">{brand.description}</p>
                 </div>
 
-                {/* Center/Right: Clinical Data */}
-                <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 pl-8">
-                    
-                    {/* Stats */}
-                    <div className="flex flex-col justify-center gap-8">
-                        {brand.stats.map((stat, idx) => (
-                            <div key={idx} className="border-t border-white/20 pt-4 animate-up">
-                                <span className="block text-5xl md:text-7xl font-bold font-sans mb-2">{stat.value}</span>
-                                <span className="text-xs uppercase tracking-[0.2em] text-white/50">{stat.label}</span>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Scientific Context */}
-                    {/* Scientific Context */}
-                    <div className="flex flex-col justify-center bg-white/5 p-8 backdrop-blur-md border border-white/10">
-                        <h3 className="text-sm uppercase tracking-widest border-b border-white/20 pb-2 mb-4 text-accent">About The Brand</h3>
-                        <p className="font-mono text-xs md:text-sm leading-relaxed text-white/80 whitespace-pre-line">
-                            {brand.aboutBrand}
-                        </p>
-                    </div>
-
+                {/* Right: Stats */}
+                <div className="md:col-span-5 flex flex-col justify-center gap-8 pl-0 md:pl-8 border-l border-white/10 h-3/4">
+                     {brand.stats.map((stat, idx) => (
+                        <div key={idx} className="border-t border-white/20 pt-4">
+                            <span className="block text-2xl md:text-4xl font-bold font-sans mb-1">{stat.value}</span>
+                            <span className="text-xs uppercase tracking-[0.2em] text-white/50">{stat.label}</span>
+                        </div>
+                    ))}
                 </div>
              </div>
 
-             {/* Slide Index Indicator */}
+             {/* Slide Index Indicator (relative to original set) */}
              <div className="absolute bottom-10 right-10 z-30 flex flex-col items-end gap-2 text-white/10 select-none">
-                <span className="font-mono text-4xl">0{i + 1}</span>
+                <span className="font-mono text-4xl">0{(i % brands.length) + 1}</span>
              </div>
              
              {/* Interaction Button */}
