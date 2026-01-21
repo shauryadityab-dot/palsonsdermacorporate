@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import Home from './pages/Home';
 import BrandsPage from './pages/BrandsPage';
 import InnovationPage from './pages/InnovationPage';
+import EcosystemPage from './pages/EcosystemPage';
 // Lenis for smooth scrolling is often a good pair with GSAP, but we'll stick to native + GSAP scrub for now as requested "performance optimized". 
 // Actually, let's just make sure the scroll is smooth.
 
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/brands" element={<BrandsPage />} />
                 <Route path="/innovation" element={<InnovationPage />} />
+                <Route path="/ecosystem" element={<EcosystemPage />} />
             </Routes>
             
             <footer className="py-20 border-t border-white/10 bg-black text-center relative z-10">
