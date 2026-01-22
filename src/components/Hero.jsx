@@ -36,7 +36,7 @@ const Hero = () => {
         end: "bottom center",
         scrub: true,
       },
-      scale: 0.95,
+      scale: 0.65,
       ease: "none"
     });
 
@@ -45,9 +45,10 @@ const Hero = () => {
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
       {/* Video Background Placeholder */}
-      <div ref={videoRef} className="absolute inset-0 w-full h-full bg-cover bg-center z-0 origin-center" style={{ 
-          backgroundImage: 'linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url("/assets/pexels-chloe-amaya-1047565-4079215.jpg")',
-          backgroundSize: 'cover'
+      <div ref={videoRef} className="absolute inset-0 w-full h-full bg-cover z-0 origin-center" style={{ 
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url("/assets/hero-banner.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 25%'
       }}>
         <div className="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
       </div>

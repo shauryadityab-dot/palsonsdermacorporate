@@ -75,7 +75,7 @@ const About = () => {
       <div className="relative h-60 md:h-auto bg-[#1a1a1a] overflow-hidden">
         <div ref={imageRef} className="absolute inset-0 w-full h-full">
             <img 
-                src="/assets/pexels-polina-kovaleva-6543617.jpg" 
+                src="/assets/applying-face-serum.jpg" 
                 alt="Clinical Texture" 
                 className="w-full h-full object-cover"
             />
@@ -83,9 +83,7 @@ const About = () => {
         </div>
         
         {/* Decorative elements */}
-        <div className="absolute top-10 right-10 w-20 h-20 border border-white/30 z-10 flex items-center justify-center">
-            <span className="text-white/50 text-[10px] transform -rotate-45">FIG 02.1</span>
-        </div>
+
       </div>
     </section>
   );

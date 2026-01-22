@@ -5,16 +5,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const milestones = [
-  { year: '2010', title: 'Inception', description: 'Founded by Dr. A. Vance with a focus on barrier repair.', image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2670&auto=format&fit=crop', 
+  { year: '2010', title: 'Inception', description: 'Founded by Dr. A. Vance with a focus on barrier repair.', image: '/assets/smiling-asian-lady-touching-her-clear-skin.jpg', 
     sideInfo: { value: '01', label: 'First Patent Filing' } 
   },
-  { year: '2015', title: 'Patent #402', description: 'Breakthrough in peptide delivery systems.', image: '/assets/pexels-cottonbro-4612159.jpg',
+  { year: '2015', title: 'Patent #402', description: 'Breakthrough in peptide delivery systems.', image: '/assets/young-beautiful-smiling-female-trendy-summer-white-dress-sexy-carefree-woman-posing-near-blue-wall-studio-positive-model-having-fun-cheerful-happy-isolated.jpg',
     sideInfo: { value: '500+', label: 'Clinical Trials' }
   },
-  { year: '2021', title: 'Clinical Trials', description: 'FDA clearance for our core restructuring serum.', image: '/assets/pexels-mandiri-abadi-396768996-14805033.jpg',
+  { year: '2021', title: 'Clinical Trials', description: 'FDA clearance for our core restructuring serum.', image: '/assets/cosmetics-factory.jpg',
     sideInfo: { value: '98%', label: 'Efficacy Rate' }
   },
-  { year: '2026', title: 'Global Apex', description: 'Standard of care in 45 countries.', image: '/assets/pexels-polina-kovaleva-6543617.jpg',
+  { year: '2026', title: 'Global Apex', description: 'Standard of care in 45 countries.', image: '/assets/side-view-smiley-woman-posing.jpg',
     sideInfo: { value: '45+', label: 'Countries Served' }
   },
 ];
