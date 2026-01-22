@@ -166,21 +166,6 @@ const EcosystemPage = () => {
                     >
                         {/* Image/Video Side */}
                         <div className="w-full md:w-1/2 h-[50vh] md:h-auto relative overflow-hidden group">
-                           {item.video ? (
-                               <div className="absolute inset-0 w-full h-full bg-black">
-                                   <iframe 
-                                       width="100%" 
-                                       height="100%" 
-                                       src={`https://www.youtube.com/embed/${item.video}?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1&loop=1&playlist=${item.video}`} 
-                                       title={item.title}
-                                       border="0"
-                                       className="absolute inset-0 w-full h-full object-cover"
-                                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                       allowFullScreen
-                                   ></iframe>
-                               </div>
-                           ) : (
-                               <>
                                    <div className="section-image absolute inset-0 bg-cover bg-center transition-transform duration-700"
                                         style={{ 
                                             backgroundImage: `url(${item.image})`,
@@ -188,8 +173,6 @@ const EcosystemPage = () => {
                                         }}
                                    ></div>
                                    <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500"></div>
-                               </>
-                           )}
                         </div>
 
                         {/* Content Side */}
@@ -238,6 +221,21 @@ const EcosystemPage = () => {
                                 {activeDivision.longDescription}
                             </p>
                         </div>
+
+                        {/* Video in Detail View */}
+                        {activeDivision.video && (
+                            <div className="max-w-4xl mx-auto mb-20 aspect-video bg-black border border-white/10">
+                                <iframe 
+                                    width="100%" 
+                                    height="100%" 
+                                    src={`https://www.youtube.com/embed/${activeDivision.video}?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1`} 
+                                    title={activeDivision.title}
+                                    className="w-full h-full object-cover"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                        )}
 
                         {/* Image Gallery */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[300px]">
