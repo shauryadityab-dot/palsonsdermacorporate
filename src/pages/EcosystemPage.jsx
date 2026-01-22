@@ -162,7 +162,7 @@ const EcosystemPage = () => {
                     <section 
                         key={index} 
                         ref={el => sectionsRef.current[index] = el}
-                        className={`min-h-[80vh] flex items-stretch relative overflow-hidden border-b border-white/10 ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}
+                        className={`min-h-[80vh] flex flex-col md:flex-row items-stretch relative overflow-hidden border-b border-white/10 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
                     >
                         {/* Image/Video Side */}
                         <div className="w-full md:w-1/2 h-[50vh] md:h-auto relative overflow-hidden group">

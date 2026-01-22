@@ -53,10 +53,10 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 text-center text-white mix-blend-normal">
-        <h1 ref={textRef} className="hero-title text-7xl md:text-9xl font-serif font-medium tracking-tight uppercase leading-[0.9] mb-8">
-          <div className="overflow-hidden inline-block italic">Clinical.</div><br/>
-          <div className="overflow-hidden inline-block text-stroke">Potency.</div><br/>
-          <div className="overflow-hidden inline-block">Renew.</div>
+        <h1 ref={textRef} className="hero-title text-5xl md:text-7xl font-serif font-medium tracking-tight uppercase leading-[0.9] mb-8">
+          <div className="overflow-hidden inline-block italic">Passionate</div><br/>
+          <div className="overflow-hidden inline-block">About</div><br/>
+          <div className="overflow-hidden inline-block text-stroke">Dermatology</div>
         </h1>
         
         <div className="hero-sub max-w-xl mx-auto mt-8 flex flex-col items-center gap-8">
