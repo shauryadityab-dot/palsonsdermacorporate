@@ -5,16 +5,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const milestones = [
-  { year: '2010', title: 'Inception', description: 'Founded by Dr. A. Vance with a focus on barrier repair.', image: '/assets/smiling-asian-lady-touching-her-clear-skin.jpg', 
+  { year: '2010', title: 'Inception', description: 'Founded by Dr. A. Vance with a focus on barrier repair.', image: '/assets/side-view-smiley-woman-posing.webp', 
     sideInfo: { value: '01', label: 'First Patent Filing' } 
   },
-  { year: '2015', title: 'Patent #402', description: 'Breakthrough in peptide delivery systems.', image: '/assets/young-beautiful-smiling-female-trendy-summer-white-dress-sexy-carefree-woman-posing-near-blue-wall-studio-positive-model-having-fun-cheerful-happy-isolated.jpg',
+  { year: '2015', title: 'Patent #402', description: 'Breakthrough in peptide delivery systems.', image: '/assets/young-beautiful-smiling-female-trendy-summer-white-dress-sexy-carefree-woman-posing-near-blue-wall-studio-positive-model-having-fun-cheerful-happy-isolated.webp',
     sideInfo: { value: '500+', label: 'Clinical Trials' }
   },
-  { year: '2021', title: 'Clinical Trials', description: 'FDA clearance for our core restructuring serum.', image: '/assets/cosmetics-factory.jpg',
+  { year: '2021', title: 'Clinical Trials', description: 'FDA clearance for our core restructuring serum.', image: '/assets/Global-Cosmetics-Cosmetic-Manufacturer-Production-Process.webp',
     sideInfo: { value: '98%', label: 'Efficacy Rate' }
   },
-  { year: '2026', title: 'Global Apex', description: 'Standard of care in 45 countries.', image: '/assets/side-view-smiley-woman-posing.jpg',
+  { year: '2026', title: 'Global Apex', description: 'Standard of care in 45 countries.', image: '/assets/young-girl-with-perfect-light-brown-skin-beautiful-curly-black-hair-smiling-camera-studio.webp',
     sideInfo: { value: '45+', label: 'Countries Served' }
   },
 ];

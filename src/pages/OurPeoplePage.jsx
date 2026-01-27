@@ -45,17 +45,20 @@ const OurPeoplePage = () => {
         {
             title: "Picnic",
             description: "An annual retreat where our team bonds over food, games, and laughter in nature's lap.",
-            date: "Winter Season"
+            date: "Winter Season",
+            image: "/assets/DSC_5732.webp"
         },
         {
             title: "Vishwakarma Puja",
             description: "Celebrating the divine architect, seeking blessings for our tools, machines, and workspace.",
-            date: "September"
+            date: "September",
+            image: "/assets/DSC_1348.webp"
         },
         {
             title: "Annual Function",
             description: "A grand celebration of our achievements, culture, and the dedicated people who make it all possible.",
-            date: "Year End"
+            date: "Year End",
+            image: "/assets/DSC_8012.webp"
         }
     ];
 
@@ -106,8 +109,12 @@ const OurPeoplePage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {events.map((event, index) => (
                         <div key={index} className="group relative border-t border-white/20 pt-8 transition-all hover:border-white/60">
-                            <div className="aspect-video bg-white/5 mb-6 flex items-center justify-center text-white/20 text-xs uppercase tracking-widest group-hover:bg-white/10 transition-colors">
-                                [ {event.title} Image ]
+                            <div className="aspect-video bg-white/5 mb-6 overflow-hidden">
+                                <img 
+                                    src={event.image} 
+                                    alt={event.title} 
+                                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
+                                />
                             </div>
                             <span className="absolute top-8 right-0 text-xs font-mono text-white/50 border border-white/20 px-2 py-1 rounded-full">{event.date}</span>
                             <h3 className="text-2xl font-light uppercase tracking-wide mb-3 group-hover:text-blue-400 transition-colors">{event.title}</h3>

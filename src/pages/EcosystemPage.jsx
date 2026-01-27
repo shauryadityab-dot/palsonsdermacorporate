@@ -88,8 +88,24 @@ const EcosystemPage = () => {
             title: "Wizderm",
             subtitle: "Clinical Excellence",
             description: "A premier clinic dedicated to advanced dermatological treatments, combining state-of-the-art technology with medical expertise to deliver exceptional skin care results.",
-            longDescription: "Wizderm represents the pinnacle of dermatological care. Our clinics are equipped with FDA-approved technology and staffed by industry-leading dermatologists. We specialize in laser treatments, anti-aging protocols, and advanced corrective procedures that restore skin health and confidence. From acne scar revision to non-surgical facelifts, Wizderm is where science meets aesthetics.",
-            image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg", // Fallback placeholder
+            contentBlocks: [
+                {
+                    title: "Pinnacle of Care",
+                    text: "Wizderm represents the pinnacle of dermatological care. Our clinics are equipped with FDA-approved technology and staffed by industry-leading dermatologists who are dedicated to patient safety and satisfaction.",
+                    image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg"
+                },
+                {
+                    title: "Specialized Treatments",
+                    text: "We specialize in laser treatments, anti-aging protocols, and advanced corrective procedures that restore skin health and confidence. Our approach combines medical precision with aesthetic artistry.",
+                    image: "/assets/young-beautiful-smiling-female-trendy-summer-white-dress-sexy-carefree-woman-posing-near-blue-wall-studio-positive-model-having-fun-cheerful-happy-isolated.webp"
+                },
+                {
+                    title: "Science Meets Aesthetics",
+                    text: "From acne scar revision to non-surgical facelifts, Wizderm is where science meets aesthetics. We believe in holistic treatments that address the root cause of skin concerns while enhancing natural beauty.",
+                    image: "/assets/side-view-smiley-woman-posing.webp"
+                }
+            ],
+            image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
             video: "1E_rhg_jtmY",
             color: "text-white",
             gallery: [
@@ -103,8 +119,19 @@ const EcosystemPage = () => {
             title: "Wizderm Hair Sciences",
             subtitle: "Restoration & Technology",
             description: "Specialized in hair restorative treatments and transplants, utilizing cutting-edge follicular advancement techniques for natural, lasting results.",
-            longDescription: "Wizderm Hair Sciences is dedicated to the art and science of hair restoration. We understand the psychological impact of hair loss and provide comprehensive solutions ranging from medical management to advanced FUE hair transplants. Our trichologists utilize the latest diagnostic tools to create personalized treatment plans that stimulate growth and restore density.",
-            image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg", // Fallback placeholder
+            contentBlocks: [
+                {
+                    title: "Art & Science of Restoration",
+                    text: "Wizderm Hair Sciences is dedicated to the art and science of hair restoration. We understand the psychological impact of hair loss and provide comprehensive solutions ranging from medical management to advanced transplants.",
+                    image: "/assets/young-girl-with-perfect-light-brown-skin-beautiful-curly-black-hair-smiling-camera-studio.webp"
+                },
+                {
+                    title: "Advanced FUE Techniques",
+                    text: "Our trichologists utilize the latest diagnostic tools to create personalized treatment plans that stimulate growth and restore density. We employ advanced FUE techniques for natural-looking, permanent results.",
+                    image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg"
+                }
+            ],
+            image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
             color: "text-blue-100",
             gallery: [
                 "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
@@ -116,23 +143,45 @@ const EcosystemPage = () => {
             title: "Our Expert Summits",
             subtitle: "Global Collaboration",
             description: "Where renowned doctors and dermatologists converge. A hub for sharing breakthrough research, clinical case studies, and shaping the future of dermatology.",
-            longDescription: "Knowledge grows when shared. Our Expert Summits are exclusive gatherings that bring together the brightest minds in dermatology from around the globe. These events facilitate the exchange of groundbreaking research, discussion of complex clinical cases, and the dissemination of new treatment protocols. It is our commitment to advancing the field through collaboration.",
-            image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg", // Fallback placeholder
+            contentBlocks: [
+                {
+                    title: "Knowledge Exchange",
+                    text: "Knowledge grows when shared. Our Expert Summits are exclusive gatherings that bring together the brightest minds in dermatology from around the globe to discuss the future of skin health.",
+                    image: "/assets/SBP_4853.webp"
+                },
+                {
+                    title: "Groundbreaking Research",
+                    text: "These events facilitate the exchange of groundbreaking research, discussion of complex clinical cases, and the dissemination of new treatment protocols. It is our commitment to advancing the field through collaboration.",
+                    image: "/assets/SBP_4064.webp"
+                }
+            ],
+            image: "/assets/pxs.webp",
             color: "text-accent",
             gallery: [
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg"
+                "/assets/SBP_4853.webp",
+                "/assets/SBP_4064.webp",
+                "/assets/DSC_9818.webp",
+                "/assets/DSC_4611.webp",
+                "/assets/DSC_2180.webp"
             ]
         },
         {
             title: "Wizderm Centre Of Dermatology",
             subtitle: "Education & Future",
             description: "Practicing dermatology with the best and preparing the next generation of specialists through rigorous training and hands-on mentorship.",
-            longDescription: "The Wizderm Centre of Dermatology is more than a clinic; it is an academic institution. We are committed to nurturing the next generation of dermatologists through comprehensive training programs, fellowships, and hands-on mentorship. Our residents learn from seasoned experts, gaining practical experience with the latest technologies and treatment modalities.",
-            image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg", // Fallback placeholder
+            contentBlocks: [
+                {
+                    title: "Academic Institution",
+                    text: "The Wizderm Centre of Dermatology is more than a clinic; it is an academic institution. We are committed to nurturing the next generation of dermatologists through comprehensive training programs.",
+                    image: "/assets/DSC_2180.webp"
+                },
+                {
+                    title: "Mentorship & Training",
+                    text: "Our residents learn from seasoned experts, gaining practical experience with the latest technologies and treatment modalities. We provide fellowships and hands-on mentorship.",
+                    image: "/assets/DSC_4611.webp"
+                }
+            ],
+            image: "/assets/DSC_2180.webp",
             color: "text-teal-100",
             gallery: [
                 "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
@@ -162,7 +211,7 @@ const EcosystemPage = () => {
                     <section 
                         key={index} 
                         ref={el => sectionsRef.current[index] = el}
-                        className={`min-h-[80vh] flex flex-col md:flex-row items-stretch relative overflow-hidden border-b border-white/10 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+                        className={`min-h-[80vh] flex flex-col md:flex-row items-stretch relative overflow-hidden border-b border-white/10 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                     >
                         {/* Image/Video Side */}
                         <div className="w-full md:w-1/2 h-[50vh] md:h-auto relative overflow-hidden group">
@@ -215,12 +264,31 @@ const EcosystemPage = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="container mx-auto px-4 py-16">
-                        <div className="max-w-4xl mx-auto mb-20 text-center">
-                            <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
-                                {activeDivision.longDescription}
-                            </p>
-                        </div>
+                    {/* Content */}
+                    <div className="container mx-auto px-4 py-16 space-y-32">
+                        {activeDivision.contentBlocks.map((block, index) => (
+                            <div key={index} className={`flex flex-col md:flex-row items-center gap-12 md:gap-24 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+                                {/* Text Side */}
+                                <div className="w-full md:w-1/2">
+                                     <h3 className="text-3xl md:text-5xl font-serif text-white mb-6">{block.title}</h3>
+                                     <div className="w-20 h-1 bg-accent mb-8"></div>
+                                     <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed">
+                                        {block.text}
+                                     </p>
+                                </div>
+                                {/* Image Side */}
+                                <div className="w-full md:w-1/2">
+                                    <div className="aspect-[4/3] bg-white/5 overflow-hidden border border-white/10 relative group">
+                                         <img 
+                                            src={block.image} 
+                                            alt={block.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                         />
+                                         <div className="absolute inset-0 ring-1 ring-inset ring-white/10"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
 
                         {/* Video in Detail View */}
                         {activeDivision.video && (

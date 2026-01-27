@@ -1,140 +1,199 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import createGlobe from 'cobe';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const GlobalSourcing = () => {
+  const canvasRef = useRef();
   const sectionRef = useRef(null);
-  const mapRef = useRef(null);
+  const [focusLocation, setFocusLocation] = useState([0, 0]); // [phi, theta] in radians
 
-  useEffect(() => {
-    // Animate Map Nodes
-    const nodes = mapRef.current.querySelectorAll('.sourcing-node');
-    gsap.fromTo(nodes, 
-      { scale: 0, opacity: 0 },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 0.5,
-        stagger: {
-          amount: 1.5,
-          from: "random"
-        },
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 60%",
-        }
+  // Ingredient Data with Coordinates (approximate centers)
+  // Phi (lat) = (90 - lat) * (PI/180)
+  // Theta (lng) = (lng + 180) * (PI/180) - usually needs some adjustment for Cobe
+  const locations = [
+    {
+      country: "USA",
+      coords: [37.0902, -95.7129],
+      sources: [
+        { supplier: "Various", items: ["Jojoba Spheres", "PEG 50 Shea Butter"] }
+      ]
+    },
+    {
+      country: "France",
+      coords: [48.8932, 2.4027], // Pantin (Solabia)
+      sources: [
+        { supplier: "Solabia", items: ["Glycopatch"] },
+        { supplier: "Lucas Meyer", items: ["Capixyl", "Melanostatine 5"] }
+      ]
+    },
+    {
+      country: "Spain",
+      coords: [41.6032, 2.2921], // Barcelona/Granollers (Textron)
+      sources: [
+        { supplier: "Textron Plimon", items: ["Sweet Almond Oil"] }
+      ]
+    },
+    {
+      country: "Netherlands",
+      coords: [51.8306, 4.9744], // Gorinchem (Corbion)
+      sources: [
+        { supplier: "Corbion PURAC", items: ["Buffered Lactic Acid"] },
+        { supplier: "DSM", items: ["Hya Act S & M (Hyaluronic Acid)", "Alpha Arbutin", "D-Panthenol"] }
+      ]
+    },
+    {
+        country: "Monaco",
+        coords: [43.7384, 7.4246],
+        sources: [
+          { supplier: "Exsymol", items: ["Alistin", "Albatin"] }
+        ]
+    },
+    {
+      country: "Switzerland",
+      coords: [47.5596, 7.5886], // Basel (Lonza)
+      sources: [
+        { supplier: "Lonza", items: ["Niacinamide"] }
+      ]
+    },
+    {
+      country: "Germany",
+      coords: [49.4875, 8.4660], // Ludwigshafen (BASF)
+      sources: [
+        { supplier: "BASF", items: ["Tinosorb S", "Vitamin E"] },
+        { supplier: "Merck", items: ["Ectoin"] },
+        { supplier: "CLR", items: ["Follicusan", "Hexaplant Richter Ceramide Complex"] },
+        { supplier: "Gustav Heess", items: ["Shea Butter", "Olive Oil", "Argan Oil"] },
+        { supplier: "Symrise", items: ["Symwhite 377"] }
+      ]
+    },
+    {
+      country: "Japan",
+      coords: [34.6551, 133.9195], // Okayama (Hayashibara)
+      sources: [
+        { supplier: "Hayashibara Nagase", items: ["Ascorbyl Glucoside"] }
+      ]
+    },
+    {
+        country: "Australia",
+        coords: [-28.7738, 153.5358], // Knockrow (Southern Cross)
+        sources: [
+          { supplier: "Southern Cross Botanicals", items: ["Australian Caviar Lime Pearl"] }
+        ]
       }
-    );
-
-    // Animate Lines
-    const lines = mapRef.current.querySelectorAll('.connection-line');
-    gsap.fromTo(lines,
-      { drawSVG: 0, opacity: 0 }, // Note: drawSVG needs Plugin, we'll simulate opacity/scale for now if no plugin
-      {
-        opacity: 0.4,
-        duration: 1,
-        stagger: 0.1,
-        delay: 0.5,
-        scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 60%"
-        }
-      }
-    );
-
-  }, []);
-
-  const isoCerts = [
-    { code: "ISO 9001:2015", desc: "Quality Management System" },
-    { code: "ISO 14001:2015", desc: "Environmental Management" },
-    { code: "ISO 22716:2007", desc: "GMP for Cosmetics" },
-    { code: "WHO GMP", desc: "World Health Organization Standard" }
   ];
 
+  // Convert lat/long to phi/theta
+  const markers = locations.map(loc => {
+      const [lat, long] = loc.coords;
+      return { location: [lat, long], size: 0.05 };
+  });
+
+  useEffect(() => {
+    let phi = 0;
+
+    const globe = createGlobe(canvasRef.current, {
+      devicePixelRatio: 2,
+      width: 800 * 2,
+      height: 800 * 2,
+      phi: 0,
+      theta: 0,
+      dark: 1,
+      diffuse: 1.2,
+      mapSamples: 16000,
+      mapBrightness: 6,
+      baseColor: [0.3, 0.3, 0.3],
+      markerColor: [0.1, 0.8, 1], // Cyan/Blue accent
+      glowColor: [0.05, 0.05, 0.05],
+      scale: 0.8,
+      offset: [-500, 500],
+      markers: markers,
+      onRender: (state) => {
+        // Called on every animation frame.
+        // state.phi = phi
+        state.phi = phi + focusLocation[0]; 
+        // We can rotate automatically or focus
+        phi += 0.003;
+      },
+    });
+
+    return () => {
+      globe.destroy();
+    };
+  }, []);
+
   return (
-    <section ref={sectionRef} className="py-32 bg-[#0B1121] text-white relative overflow-hidden border-b border-white/10">
-        
-        {/* Simplified World Map Background (Abstract) */}
-        <div ref={mapRef} className="absolute inset-0 z-0 opacity-20">
-             {/* Use a dotted grid to represent the world/tech */}
-             <div className="absolute inset-0" 
-                  style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
-             </div>
-             
-             {/* Randomly placed 'nodes' to represent 75 countries */}
-             {Array.from({ length: 30 }).map((_, i) => (
-                 <div key={i} className="sourcing-node absolute w-2 h-2 bg-accent rounded-full shadow-[0_0_10px_rgba(0,170,255,0.8)]"
-                      style={{ 
-                          top: `${Math.random() * 80 + 10}%`, 
-                          left: `${Math.random() * 90 + 5}%` 
-                      }}>
-                 </div>
-             ))}
-
-             {/* Center Node (India/HQ) */}
-             <div className="absolute top-1/2 left-2/3 w-4 h-4 bg-white rounded-full z-10 shadow-[0_0_20px_white] animate-pulse"></div>
-        </div>
-
-        <div className="container relative z-10 mx-auto px-6">
-            <div className="flex flex-col md:flex-row gap-16 items-center">
+    <section ref={sectionRef} className="py-20 md:py-32 bg-[#0B1121] text-white overflow-hidden border-b border-white/10 relative">
+        <div className="container mx-auto px-4 md:px-6">
+            <div className="flex flex-col md:flex-row items-center gap-16">
                 
-                {/* Text Content */}
-                <div className="md:w-1/2">
-                    <h2 className="text-accent font-mono text-sm tracking-widest mb-4">GLOBAL SOURCING NETWORK</h2>
-                    <h3 className="text-5xl md:text-7xl font-serif mb-8 leading-tight">
-                        World Class<br/>
-                        <span className="text-stroke">Ingredients</span>
-                    </h3>
-                    <p className="text-lg text-white/70 leading-relaxed mb-12 max-w-lg">
-                        We define excellence by the purity of our inputs. Sourcing active pharmaceutical ingredients from <span className="text-white font-bold">75+ countries</span>, ensuring that every formulation meets global benchmarks of efficacy and safety.
-                    </p>
-
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-2 gap-8 border-t border-white/10 pt-8">
-                        <div>
-                            <span className="block text-5xl font-bold mb-2">75+</span>
-                            <span className="text-xs uppercase tracking-widest opacity-60">Source Countries</span>
-                        </div>
-                        <div>
-                            <span className="block text-5xl font-bold mb-2">100%</span>
-                            <span className="text-xs uppercase tracking-widest opacity-60">Vendor Audited</span>
-                        </div>
+                {/* Globe Visualization */}
+                <div className="w-full md:w-1/2 flex justify-center relative">
+                    <div className="w-[300px] h-[300px] md:w-[600px] md:h-[600px] relative">
+                         <canvas
+                            ref={canvasRef}
+                            style={{ width: '100%', height: '100%', contain: 'layout paint size', opacity: 0 }}
+                            className="transition-opacity duration-1000 ease-in-out fade-in-canvas"
+                            onLoad={(e) => e.target.style.opacity = 1}
+                         />
+                         {/* Fallback/Loading or Decorative ring */}
+                         <div className="absolute inset-0 rounded-full border border-white/5 pointer-events-none"></div>
                     </div>
                 </div>
 
-                {/* ISO Cards */}
-                <div className="md:w-1/2 grid grid-cols-1 gap-4">
-                    <h4 className="text-right text-xs uppercase tracking-widest opacity-50 mb-4">Accreditations & Standards</h4>
-                    {isoCerts.map((cert, idx) => (
-                        <div key={idx} className="group flex items-center justify-between p-6 border border-white/10 hover:bg-white/5 hover:border-accent transition-all duration-300">
-                            <div>
-                                <span className="block text-xl font-bold group-hover:text-accent transition-colors">{cert.code}</span>
-                                <span className="text-xs font-mono opacity-60">{cert.desc}</span>
+                {/* Content Side */}
+                <div className="w-full md:w-1/2">
+                    <h2 className="text-accent font-mono text-sm tracking-widest mb-4">GLOBAL SOURCING</h2>
+                    <h3 className="text-4xl md:text-6xl font-serif mb-8 leading-none">
+                        Best-in-Class <br /> <span className="text-stroke">Ingredients</span>
+                    </h3>
+                    
+                    <div className="h-[400px] overflow-y-auto pr-4 custom-scrollbar space-y-8">
+                        {locations.map((loc, idx) => (
+                            <div key={idx} className="group border-l-2 border-white/10 pl-6 hover:border-accent transition-colors duration-300">
+                                <h4 className="text-2xl font-light mb-2 text-white group-hover:text-accent">{loc.country}</h4>
+                                <div className="space-y-4">
+                                    {loc.sources.map((source, sIdx) => (
+                                        <div key={sIdx}>
+                                            <p className="text-xs uppercase tracking-wider text-white/50 mb-1">{source.supplier}</p>
+                                            <ul className="text-sm text-white/80 font-light space-y-1">
+                                                {source.items.map((item, iIdx) => (
+                                                    <li key={iIdx}>{item}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                            <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-accent">
-                                <span className="text-xs">✓</span>
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-
             </div>
         </div>
 
-        {/* Floating Ticker */}
-        <div className="absolute bottom-0 w-full border-t border-white/5 bg-black/20 backdrop-blur-sm py-3">
-             <div className="animate-marquee whitespace-nowrap flex gap-12 text-xs uppercase tracking-[0.2em] opacity-50 font-mono">
-                 {['USA', 'Germany', 'France', 'Switzerland', 'Japan', 'South Korea', 'Italy', 'Canada', 'Australia', 'Spain', 'United Kingdom'].map(country => (
-                     <span key={country}>Imported from {country}</span>
-                 ))}
-                 {['USA', 'Germany', 'France', 'Switzerland', 'Japan', 'South Korea', 'Italy', 'Canada', 'Australia', 'Spain', 'United Kingdom'].map(country => (
-                     <span key={country + '_dup'}>Imported from {country}</span>
-                 ))}
-             </div>
-        </div>
-
+        <style>{`
+            .fade-in-canvas {
+                animation: fadeIn 1.5s forwards;
+            }
+            @keyframes fadeIn {
+                to { opacity: 1; }
+            }
+            /* Custom Scrollbar for the list */
+            .custom-scrollbar::-webkit-scrollbar {
+                width: 4px;
+            }
+            .custom-scrollbar::-webkit-scrollbar-track {
+                background: rgba(255, 255, 255, 0.05);
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.2);
+            }
+            .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+        `}</style>
     </section>
   );
 };
