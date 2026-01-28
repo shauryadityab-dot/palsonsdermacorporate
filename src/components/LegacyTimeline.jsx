@@ -47,9 +47,9 @@ const LegacyTimeline = () => {
         {
           scrollTrigger: {
             trigger: card,
-            start: "top 75%",
-            end: "top 50%",
-            scrub: 0.5,
+            start: "top 85%",
+            end: "top 65%",
+            scrub: 0.1,
             toggleActions: "play none none reverse"
           },
           opacity: 1,
@@ -100,19 +100,19 @@ const LegacyTimeline = () => {
                     {index % 2 === 0 ? (
                         <div 
                         ref={el => cardsRef.current[index] = el}
-                        className="group w-full h-80 relative overflow-hidden border border-white/10 transition-all duration-500 hover:border-accent shadow-sm ml-auto"
+                        className="group w-full h-80 relative overflow-hidden border border-white/10 transition-all duration-100 hover:border-accent shadow-sm ml-auto"
                         >
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
-                            <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 filter brightness-50 group-hover:brightness-75" />
-                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+                            <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter brightness-50 group-hover:brightness-75" />
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-100"></div>
                         </div>
 
                         {/* Content Overlay */}
                         <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
                             <div className="mb-auto"></div>
-                            <h3 className="text-2xl font-bold uppercase tracking-widest mb-2 border-t border-white/30 pt-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 text-white">{item.title}</h3>
-                            <p className="text-sm text-gray-300 font-mono leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">{item.description}</p>
+                            <h3 className="text-2xl font-bold uppercase tracking-widest mb-2 border-t border-white/30 pt-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-white">{item.title}</h3>
+                            <p className="text-sm text-gray-300 font-mono leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">{item.description}</p>
                         </div>
                         </div>
                     ) : (
@@ -128,19 +128,19 @@ const LegacyTimeline = () => {
                      {index % 2 !== 0 ? (
                         <div 
                         ref={el => cardsRef.current[index] = el}
-                        className="group w-full h-80 relative overflow-hidden border border-white/10 transition-all duration-500 hover:border-accent shadow-sm mr-auto"
+                        className="group w-full h-80 relative overflow-hidden border border-white/10 transition-all duration-300 hover:border-accent shadow-sm mr-auto"
                         >
                             {/* Background Image */}
                             <div className="absolute inset-0 z-0">
-                                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 filter brightness-50 group-hover:brightness-75" />
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
+                                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter brightness-50 group-hover:brightness-75" />
+                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
                             </div>
     
                             {/* Content Overlay */}
                             <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
                                 <div className="mb-auto"></div>
-                                <h3 className="text-2xl font-bold uppercase tracking-widest mb-2 border-t border-white/30 pt-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 text-white">{item.title}</h3>
-                                <p className="text-sm text-gray-300 font-mono leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 delay-100">{item.description}</p>
+                                <h3 className="text-2xl font-bold uppercase tracking-widest mb-2 border-t border-white/30 pt-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-white">{item.title}</h3>
+                                <p className="text-sm text-gray-300 font-mono leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">{item.description}</p>
                             </div>
                         </div>
                      ) : (

@@ -41,31 +41,11 @@ const OurPeoplePage = () => {
         }
     };
 
-    const events = [
-        {
-            title: "Picnic",
-            description: "An annual retreat where our team bonds over food, games, and laughter in nature's lap.",
-            date: "Winter Season",
-            image: "/assets/DSC_5732.webp"
-        },
-        {
-            title: "Vishwakarma Puja",
-            description: "Celebrating the divine architect, seeking blessings for our tools, machines, and workspace.",
-            date: "September",
-            image: "/assets/DSC_1348.webp"
-        },
-        {
-            title: "Annual Function",
-            description: "A grand celebration of our achievements, culture, and the dedicated people who make it all possible.",
-            date: "Year End",
-            image: "/assets/DSC_8012.webp"
-        }
-    ];
 
     return (
         <div className="min-h-screen bg-black text-white pt-32 pb-20 px-4 md:px-8">
             {/* Hero Section */}
-            <header ref={headerRef} className="mb-20 md:mb-32 border-b border-white/20 pb-10">
+            <header ref={headerRef} className="mb-8 md:mb-12 border-b border-white/20 pb-10">
                 <h1 className="text-5xl md:text-8xl font-light tracking-tighter mb-6 uppercase">
                     Our People
                 </h1>
@@ -74,53 +54,59 @@ const OurPeoplePage = () => {
                 </p>
             </header>
 
-            {/* Long Term Associates Section */}
-            <section ref={addToRefs} className="mb-32">
-                <div className="border-t border-white/20 pt-4 mb-10 flex flex-col md:flex-row justify-between items-start md:items-end">
-                    <h2 className="text-3xl md:text-4xl uppercase tracking-widest font-light">Long-term Associates</h2>
-                    <span className="text-sm text-white/50 mt-2 md:mt-0">DEDICATION & LOYALTY</span>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
-                    {[1, 2, 3, 4].map((item) => (
-                        <div key={item} className="bg-black p-8 md:p-12 border border-white/5 hover:border-white/20 transition-colors duration-300 min-h-[300px] flex flex-coljustify-between">
-                            <div className="w-full h-48 bg-white/5 mb-6 flex items-center justify-center text-white/20 text-xs uppercase tracking-widest">
-                                [Image Placeholder]
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-medium mb-1">Team Member Name</h3>
-                                <p className="text-white/50 text-sm mb-4">Designation • 10+ Years</p>
-                                <p className="text-white/70 text-sm leading-relaxed">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
-                                </p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
             {/* Events Section */}
             <section ref={addToRefs}>
-                 <div className="border-t border-white/20 pt-4 mb-10 flex flex-col md:flex-row justify-between items-start md:items-end">
-                    <h2 className="text-3xl md:text-4xl uppercase tracking-widest font-light">Life at Our Organization</h2>
+                 <div className="border-t border-white/20 pt-4 mb-20 flex flex-col md:flex-row justify-between items-start md:items-end">
+                    <h2 className="text-3xl md:text-5xl uppercase tracking-widest font-light">Life at Our Organization</h2>
                     <span className="text-sm text-white/50 mt-2 md:mt-0">CELEBRATIONS & EVENTS</span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {events.map((event, index) => (
-                        <div key={index} className="group relative border-t border-white/20 pt-8 transition-all hover:border-white/60">
-                            <div className="aspect-video bg-white/5 mb-6 overflow-hidden">
-                                <img 
-                                    src={event.image} 
-                                    alt={event.title} 
-                                    className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500 grayscale group-hover:grayscale-0"
-                                />
+                <div className="space-y-32">
+                    {[
+                        {
+                            title: "Picnic",
+                            description: "An annual winter retreat where our team bonds over food, games, and laughter in nature's lap. The highlight of the day is always the friendly yet competitive cricket and football matches that bring out the spirit of sportsmanship and camaraderie among us. It's a day to unwind, connect beyond work, and create lasting memories.",
+                            date: "Winter Season",
+                            image: "/assets/DSC_5732.webp"
+                        },
+                        {
+                            title: "Vishwakarma Puja",
+                            description: "Celebrating the divine architect, seeking blessings for our tools, machines, and workspace. It is a day of gratitude where we come together to honor the technology and equipment that drive our daily operations. The entire office is decorated, and the day concludes with a traditional feast and shared blessings.",
+                            date: "September",
+                            image: "/assets/DSC_1348.webp"
+                        },
+                        {
+                            title: "Annual Function",
+                            description: "A grand year-end celebration of our achievements, culture, and the dedicated people who make it all possible. The evening is filled with cultural performances, talent showcases, and awards for excellence. It serves as a moment of reflection and a collective step forward into the new year with renewed energy.",
+                            date: "Year End",
+                            image: "/assets/DSC_8012.webp"
+                        }
+                    ].map((event, index) => (
+                        <div key={index} className={`flex flex-col md:flex-row items-center gap-12 md:gap-24 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                            
+                            {/* Image Side */}
+                            <div className="w-full md:w-1/2">
+                                <div className="aspect-video bg-white/5 overflow-hidden relative group border border-white/10">
+                                    <img 
+                                        src={event.image} 
+                                        alt={event.title} 
+                                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 hover:scale-105"
+                                    />
+                                    <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm border border-white/10 px-3 py-1 text-xs font-mono rounded-full uppercase tracking-wider">
+                                        {event.date}
+                                    </div>
+                                </div>
                             </div>
-                            <span className="absolute top-8 right-0 text-xs font-mono text-white/50 border border-white/20 px-2 py-1 rounded-full">{event.date}</span>
-                            <h3 className="text-2xl font-light uppercase tracking-wide mb-3 group-hover:text-blue-400 transition-colors">{event.title}</h3>
-                            <p className="text-white/60 leading-relaxed text-sm">
-                                {event.description}
-                            </p>
+
+                            {/* Text Side */}
+                            <div className="w-full md:w-1/2">
+                                <h3 className="text-4xl md:text-6xl font-serif text-white mb-6 leading-tight">{event.title}</h3>
+                                <div className="w-20 h-1 bg-blue-500/50 mb-8"></div>
+                                <p className="text-lg md:text-xl text-white/70 font-light leading-relaxed">
+                                    {event.description}
+                                </p>
+                            </div>
+
                         </div>
                     ))}
                 </div>

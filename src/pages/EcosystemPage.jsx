@@ -91,28 +91,28 @@ const EcosystemPage = () => {
             contentBlocks: [
                 {
                     title: "Pinnacle of Care",
-                    text: "Wizderm represents the pinnacle of dermatological care. Our clinics are equipped with FDA-approved technology and staffed by industry-leading dermatologists who are dedicated to patient safety and satisfaction.",
-                    image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg"
+                    text: "Established in 2011, Wizderm Speciality Skin & Hair Clinic has grown into a trusted leader in advanced dermatological care. Founded in Kolkata, we now operate 8 clinics across India — four in Kolkata (Jodhpur Park, Shakespeare Sarani, City Centre 1 and Wizderm Hair Sciences) along with centres in Siliguri, Ahmedabad, Guwahati and Hyderabad (which opened in 2025). Wizderm combines expert medical practices with world-class technology to address a wide range of skin and hair concerns. With a team of over 115 experienced dermatologists, state-of-the-art infrastructure and proven treatment protocols, we are committed to delivering ethical, safe and effective care. Today, more than 9.6 lakh patients have trusted Wizderm for their skin and hair needs, reinforcing our mission to offer reliable dermatology rooted in excellence and patient satisfaction",
+                    image: "/assets/Consultation Room.jpg"
                 },
                 {
-                    title: "Specialized Treatments",
-                    text: "We specialize in laser treatments, anti-aging protocols, and advanced corrective procedures that restore skin health and confidence. Our approach combines medical precision with aesthetic artistry.",
-                    image: "/assets/young-beautiful-smiling-female-trendy-summer-white-dress-sexy-carefree-woman-posing-near-blue-wall-studio-positive-model-having-fun-cheerful-happy-isolated.webp"
+                    title: "How We Work",
+                    text: "At Wizderm Skin & Clinic, our dermatologists are true Partners in Practice, which means they work collaboratively with our team and patients to provide the highest quality care. With the freedom to focus entirely on their professional expertise, they are dedicated to delivering exceptional treatment and care, ensuring that your well-being is always their top priority.",
+                    image: "/assets/Procedure Room3.webp"
                 },
                 {
-                    title: "Science Meets Aesthetics",
-                    text: "From acne scar revision to non-surgical facelifts, Wizderm is where science meets aesthetics. We believe in holistic treatments that address the root cause of skin concerns while enhancing natural beauty.",
-                    image: "/assets/side-view-smiley-woman-posing.webp"
+                    title: "Our Vision",
+                    text: "We see a world where skincare is coupled with expertise and utmost care and is accessible and affordable for everyone. Whether it’s cosmetic or clinical, people should visit us to get their solutions efficiently. We also envision a world where people can appreciate their natural beauty and be confident in the skin they are in.",
+                    image: "/assets/How-we-work.png"
                 }
             ],
-            image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
+            image: "/assets/Exteriors.jpg",
             video: "1E_rhg_jtmY",
             color: "text-white",
             gallery: [
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg"
+                "/assets/Procedure Room.webp",
+                "/assets/The Team.jpg",
+                "/assets/Consultation Room.jpg",
+                "/assets/Pharmacy.jpg"
             ]
         },
         {
@@ -123,20 +123,20 @@ const EcosystemPage = () => {
                 {
                     title: "Art & Science of Restoration",
                     text: "Wizderm Hair Sciences is dedicated to the art and science of hair restoration. We understand the psychological impact of hair loss and provide comprehensive solutions ranging from medical management to advanced transplants.",
-                    image: "/assets/young-girl-with-perfect-light-brown-skin-beautiful-curly-black-hair-smiling-camera-studio.webp"
+                    image: "/assets/whs-consultation.jpeg"
                 },
                 {
                     title: "Advanced FUE Techniques",
                     text: "Our trichologists utilize the latest diagnostic tools to create personalized treatment plans that stimulate growth and restore density. We employ advanced FUE techniques for natural-looking, permanent results.",
-                    image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg"
+                    image: "/assets/whs_procedureroom.jpeg"
                 }
             ],
-            image: "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
+            image: "/assets/whs_reception.webp",
             color: "text-blue-100",
             gallery: [
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg"
+                "/assets/whs_waitingroom1.webp",
+                "/assets/Fotona Machine.jpeg",
+                "/assets/whs-consultation.jpeg"
             ]
         },
         {
@@ -184,8 +184,8 @@ const EcosystemPage = () => {
             image: "/assets/DSC_2180.webp",
             color: "text-teal-100",
             gallery: [
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg",
-                "/assets/pexels-chloe-amaya-1047565-4079215.jpg"
+                "/assets/DSC_2209.JPG",
+                "/assets/DSC_2192.JPG"
             ]
         }
     ];
@@ -218,7 +218,7 @@ const EcosystemPage = () => {
                                    <div className="section-image absolute inset-0 bg-cover bg-center transition-transform duration-700"
                                         style={{ 
                                             backgroundImage: `url(${item.image})`,
-                                            filter: 'grayscale(100%) brightness(0.7)' 
+                                            // filter: 'grayscale(100%) brightness(0.7)' 
                                         }}
                                    ></div>
                                    <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500"></div>
@@ -315,7 +315,7 @@ const EcosystemPage = () => {
                                     <img 
                                         src={img} 
                                         alt={`${activeDivision.title} gallery ${idx + 1}`} 
-                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
                                 </div>
