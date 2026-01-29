@@ -89,6 +89,17 @@ const Manufacturing = () => {
                      <p className="text-white/60 text-sm leading-relaxed">
                         All processes adhere to international standards, ensuring safety, effectiveness, and consistency—batch after batch.
                      </p>
+                     
+                     {/* Certification Image */}
+                     <div className="mt-8">
+                         <div className="inline-block p-4 bg-white/5 border border-white/10 rounded-sm">
+                             <img 
+                                 src="/assets/qualitytest.png" 
+                                 alt="Quality Certified" 
+                                 className="h-20 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
+                             />
+                         </div>
+                     </div>
                  </div>
 
                  <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
