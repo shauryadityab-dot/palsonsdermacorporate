@@ -57,6 +57,48 @@ const BrandShowcase = () => {
       aboutBrand: 'NEOLAYR PRO means a new layer of skin for the pro in you. At the heart of NEOLAYR PRO lies a legacy inherited from Neolayr, a brand born in 2020 from the stable of Palsons Derma with 30 years of expertise in dermatology with a singular mission: to elevate skincare to an experience that nourishes both body and soul. Our core essence is built on authenticity, setting us apart amidst a sea of skincare brands.',
       image: '/assets/neolayrprologo.webp',
       bgImage: '/assets/pexels-mandiri-abadi-396768996-14805033.jpg'
+    },
+    {
+      id: 'ridacne',
+      name: 'Ridacne',
+      tagline: 'Specialized Acne Care',
+      description: 'A specialized skincare line designed to reduce acne, regulate sebum production, and unclog pores using salicylic acid and botanical extracts.',
+      stats: [
+        { value: 'Acne', label: 'Reduction' },
+        { value: 'Sebum', label: 'Regulation' },
+        { value: 'SA', label: 'Active' }
+      ],
+      aboutBrand: 'Ridacne is dedicated to acne-prone skin, offering products like Foaming Face Wash and SA Serum to maintain clear, healthy skin.',
+      image: '/assets/ridacne.png',
+      bgImage: '/assets/smiling-asian-lady-touching-her-clear-skin.jpg'
+    },
+    {
+      id: 'sunmate',
+      name: 'Sunmate',
+      tagline: 'Expert Sun Protection',
+      description: 'Non-comedogenic, oil-free sunscreens with broad-spectrum UVA/UVB protection, designed for oily and acne-prone skin.',
+      stats: [
+        { value: 'SPF 100+', label: 'Max Protection' },
+        { value: 'Matte', label: 'Finish' },
+        { value: 'Oil-Free', label: 'Formula' }
+      ],
+      aboutBrand: 'Sunmate offers a range of high-performance sunscreens, including SPF 30+ and SPF 100+, ensuring your skin stays protected without feeling greasy.',
+      image: '/assets/sunmate.png',
+      bgImage: '/assets/young-beautiful-smiling-female-trendy-summer-white-dress-sexy-carefree-woman-posing-near-blue-wall-studio-positive-model-having-fun-cheerful-happy-isolated.jpg'
+    },
+    {
+      id: 'isdin',
+      name: 'ISDIN',
+      tagline: 'International Solutions',
+      description: 'A global leader from Barcelona blending pharmaceutical science with cosmetic elegance for advanced skin care.',
+      stats: [
+        { value: '40+', label: 'Countries' },
+        { value: '1975', label: 'Founded' },
+        { value: 'B Corp', label: 'Certified' }
+      ],
+      aboutBrand: 'ISDIN is an international reference in dermatology, committed to innovation and sustainability, providing advanced solutions for skin health.',
+      image: '/assets/Isdin.png',
+      bgImage: '/assets/Exteriors.jpg'
     }
   ];
 
@@ -68,7 +110,7 @@ const BrandShowcase = () => {
       {/* Marquee Wrapper */}
       <div 
         className="flex animate-marquee hover:[animation-play-state:paused]"
-        style={{ animationDuration: '120s' }} // Slow speed for readability
+        style={{ animationDuration: '60s' }} // Increased speed for better flow
       >
         {brandSet.map((brand, i) => (
           <div key={`${brand.id}-${i}`} className="w-[85vw] md:w-[60vw] h-screen flex-shrink-0 relative flex overflow-hidden border-r border-white/10">

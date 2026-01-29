@@ -6,94 +6,165 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Manufacturing = () => {
     const sectionRef = useRef(null);
-    const processRef = useRef(null);
+    const textRef = useRef(null);
   
     useEffect(() => {
-     // Animate Process Steps
-      const steps = processRef.current.children;
-      gsap.fromTo(steps,
-        { opacity: 0, y: 50 },
-        {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: processRef.current,
-                start: "top 80%",
+     // Simple fade-in for sections
+      gsap.utils.toArray('.fade-in-section').forEach(section => {
+        gsap.fromTo(section,
+            { opacity: 0, y: 30 },
+            {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: "power2.out"
             }
-        }
-      );
-
+        );
+      });
     }, []);
   
-    const processSteps = [
-        { num: '01', title: 'Sourcing', desc: 'Procurement of premium grade active pharmaceutical ingredients from certified global suppliers.' },
-        { num: '02', title: 'Quality Control', desc: 'Rigorous pre-production analysis ensuring purity and potency standards are met.' },
-        { num: '03', title: 'Formulation', desc: 'Precision compounding in sterile, temperature-controlled active labs.' },
-        { num: '04', title: 'Processing', desc: 'Advanced homogenization and stabilization using cutting-edge reaction vessels.' },
-        { num: '05', title: 'Packaging', desc: 'Automated sterile filling and sealing to maintain formulation integrity.' },
-        { num: '06', title: 'Distribution', desc: 'Final quality assurance and cold-chain logistics dispatch.' }
-    ];
-
     return (
-      <section ref={sectionRef} className="py-24 bg-[#f5f5f5] text-black border-t border-black">
-        <div className="container mx-auto px-4">
+      <section ref={sectionRef} className="pt-24 pb-0 bg-[#0B1121] text-white">
+        <div className="container mx-auto px-4 md:px-8">
           
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-black pb-8">
-            <h2 className="text-5xl md:text-7xl font-serif font-medium uppercase tracking-tight leading-none">Manufacturing<br/>Excellence</h2>
-            <p className="text-right text-xs max-w-xs font-mono hidden md:block mt-4 md:mt-0 opacity-70">
-              END-TO-END PRODUCTION CAPABILITIES
-            </p>
+          {/* Header */}
+          <div className="mb-20 text-center fade-in-section">
+             <h2 className="text-accent font-mono text-sm uppercase tracking-[0.3em] mb-4">Section 1</h2>
+             <h1 className="text-5xl md:text-7xl font-serif mb-6">Innovation & Authority</h1>
+             <p className="max-w-2xl mx-auto text-white/60 text-lg leading-relaxed">
+                Establishing credibility through control, scale, and uncompromising verification systems.
+             </p>
           </div>
-  
-          {/* Facilities Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-             {/* Plant 1 - Active */}
-             <div className="group relative border border-black h-[500px] overflow-hidden">
-                <div className="absolute top-4 left-4 z-10 bg-black text-white px-3 py-1 text-xs uppercase tracking-widest">Unit 01: Operational</div>
-                <img src="/assets/pexels-ron-lach-10222458.jpg" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="Operational Facility" />
-                <div className="absolute bottom-0 left-0 w-full bg-black/90 text-white p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <h3 className="text-2xl font-serif mb-2">Primary Formulation Plant</h3>
-                    <p className="text-sm opacity-70 font-mono">Specialized in topical semisolids and liquid manufacturing. Capacity: 50M units/annum.</p>
-                </div>
-             </div>
 
-             {/* Plant 2 - Construction */}
-             <div className="group relative border-2 border-dashed border-black/30 h-[500px] overflow-hidden bg-gray-200">
-                <div className="absolute top-4 left-4 z-10 bg-accent text-white px-3 py-1 text-xs uppercase tracking-widest">Unit 02: Under Construction</div>
-                 {/* Using a placeholder or different image style to imply construction/future */}
-                <div className="w-full h-full flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2670&auto=format&fit=crop')] bg-cover grayscale opacity-50">
-                    <div className="text-center p-8 bg-white/10 backdrop-blur-md border border-black/10">
-                        <span className="block text-4xl font-bold mb-2">2027</span>
-                        <span className="text-xs uppercase tracking-widest">Expansion Phase</span>
+          {/* 1. Existing Manufacturing Facility */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-32 items-center fade-in-section">
+                <div className="relative h-[500px] border border-white/10 group overflow-hidden">
+                    <img src="/assets/factory.jpg" alt="Manufacturing Facility" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1121] via-transparent to-transparent"></div>
+                    <div className="absolute bottom-6 left-6 border-l-2 border-accent pl-4">
+                        <span className="text-xs font-mono uppercase text-accent">Est. 1986</span>
+                        <h3 className="text-xl font-serif">State-of-the-Art Unit</h3>
                     </div>
                 </div>
-                <div className="absolute bottom-0 left-0 w-full bg-black/90 text-white p-6">
-                    <h3 className="text-2xl font-serif mb-2">Advanced Biologics Facility</h3>
-                    <p className="text-sm opacity-70 font-mono">Future hub for peptide synthesis and nano-delivery systems. Commissioning Q1 2027.</p>
-                </div>
-             </div>
-          </div>
-
-          {/* Process Flow */}
-          <div className="border-t border-black pt-16">
-             <h3 className="text-xl uppercase tracking-widest mb-12 flex items-center gap-4">
-                <div className="w-4 h-4 bg-black"></div>
-                Production Lifecycle
-             </h3>
-             
-             <div ref={processRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-                {processSteps.map((step, i) => (
-                    <div key={i} className="relative pl-8 border-l border-black/20 group hover:border-black transition-colors duration-300">
-                        <span className="absolute -left-3 top-0 text-4xl font-bold font-serif bg-[#f5f5f5] pr-2 text-black/20 group-hover:text-black transition-colors">{step.num}</span>
-                        <h4 className="text-lg font-bold uppercase tracking-wider mb-2 mt-2 ml-2">{step.title}</h4>
-                        <p className="text-sm opacity-70 leading-relaxed font-mono">{step.desc}</p>
+                <div className="space-y-8">
+                    <div>
+                        <h3 className="text-3xl font-serif mb-4">Legacy & Evolution</h3>
+                        <p className="text-white/70 leading-relaxed mb-6">
+                            Our manufacturing journey began with a clear focus on quality-driven production. Over the years, our existing facility has grown into a robust, process-led manufacturing unit that laid the foundation for everything we do today. From infrastructure planning to workforce training, the facility was designed to support consistent output, strict quality benchmarks, and scalable operations.
+                        </p>
                     </div>
-                ))}
-             </div>
+                    
+                    <div className="bg-white/5 p-8 border border-white/10">
+                        <h4 className="text-lg font-serif mb-4 text-accent">Transition to Dermatology</h4>
+                        <p className="text-sm text-white/60 mb-4">
+                            As consumer needs evolved, we made a conscious shift towards dermatology-backed formulations. This transition involved:
+                        </p>
+                        <ul className="space-y-3">
+                            {['Upgrading machinery for active-driven formulations', 'Training teams for dermatology-grade protocols', 'Introducing lab-controlled stability environments'].map((item, i) => (
+                                <li key={i} className="flex gap-3 text-sm text-white/80 items-start">
+                                    <span className="text-accent mt-1">▹</span>
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
           </div>
 
+          {/* 2. International Standards */}
+          <div className="mb-32 fade-in-section">
+             <div className="flex flex-col md:flex-row gap-12 bg-[#101625] border border-white/10 p-12 relative overflow-hidden">
+                 {/* Decorative BG */}
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                 <div className="w-full md:w-1/3">
+                     <h3 className="text-3xl font-serif mb-4">Quality is Non-Negotiable</h3>
+                     <p className="text-white/60 text-sm leading-relaxed mb-6">
+                        Every product manufactured undergoes 100+ quality checks. Our QC and QA teams operate independently to ensure unbiased validation at every stage.
+                     </p>
+                     <p className="text-white/60 text-sm leading-relaxed">
+                        All processes adhere to international standards, ensuring safety, effectiveness, and consistency—batch after batch.
+                     </p>
+                 </div>
+
+                 <div className="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                     {[
+                         'Raw material verification',
+                         'In-process quality control',
+                         'Stability testing',
+                         'Microbiological safety checks',
+                         'Final batch approval',
+                         'Independent validation'
+                     ].map((check, i) => (
+                         <div key={i} className="flex items-center gap-4 bg-black/20 p-4 border border-white/5 hover:border-accent/50 transition-colors">
+                             <div className="w-6 h-6 rounded-full border border-accent flex items-center justify-center text-accent text-[10px]">✓</div>
+                             <span className="text-sm font-mono tracking-wide">{check}</span>
+                         </div>
+                     ))}
+                 </div>
+             </div>
+          </div>
+        </div>
+
+        {/* 3. Evolution Timeline (White Background) */}
+        <div className="w-full bg-white text-[#0B1121] py-24 fade-in-section">
+          <div className="container mx-auto px-4 md:px-8">
+             <div className="text-center mb-16">
+                 <h3 className="text-accent font-mono text-xs tracking-[0.3em] uppercase mb-4">Our Journey</h3>
+                 <h2 className="text-3xl md:text-5xl font-serif">Evolution of Excellence</h2>
+             </div>
+
+             <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
+                 {/* Connecting Line (Desktop) */}
+                 <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-[2px] bg-[#0B1121]/10 z-0"></div>
+
+                 {/* Stage 1 */}
+                 <div className="relative z-10 flex flex-col items-center text-center group">
+                     <div className="w-24 h-24 rounded-full bg-white border border-[#0B1121]/10 flex items-center justify-center mb-6 group-hover:border-accent group-hover:shadow-[0_0_30px_rgba(74,144,226,0.15)] transition-all duration-500 shadow-sm">
+                         {/* Beaker Icon (Laboratory/Chemical) */}
+                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 group-hover:text-accent transition-colors">
+                            <path d="M10 2v7.31"/><path d="M14 2v7.31"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/>
+                         </svg>
+                     </div>
+                     <h4 className="text-xl font-serif mb-3">Conventional Manufacturing</h4>
+                     <p className="text-sm text-gray-500 px-8 leading-relaxed max-w-xs">
+                         Establishing core quality benchmarks and consistent output systems.
+                     </p>
+                 </div>
+
+                 {/* Stage 2 */}
+                 <div className="relative z-10 flex flex-col items-center text-center group">
+                     <div className="w-24 h-24 rounded-full bg-white border border-[#0B1121]/10 flex items-center justify-center mb-6 group-hover:border-accent group-hover:shadow-[0_0_30px_rgba(74,144,226,0.15)] transition-all duration-500 delay-100 shadow-sm">
+                         {/* Shield Icon (Safety/Control) */}
+                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400 group-hover:text-accent transition-colors">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                         </svg>
+                     </div>
+                     <h4 className="text-xl font-serif mb-3">Systematized Control</h4>
+                     <p className="text-sm text-gray-500 px-8 leading-relaxed max-w-xs">
+                         Integrating strict safety protocols, independent QC/QA, and scalable processes.
+                     </p>
+                 </div>
+
+                 {/* Stage 3 */}
+                 <div className="relative z-10 flex flex-col items-center text-center group">
+                     <div className="w-24 h-24 rounded-full bg-white border border-accent/50 shadow-lg flex items-center justify-center mb-6 group-hover:border-accent group-hover:scale-110 transition-all duration-500 delay-200">
+                         {/* Microscope Icon (Dermatology/Science) */}
+                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
+                            <path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
+                         </svg>
+                     </div>
+                     <h4 className="text-xl font-serif mb-3 text-accent">Dermatology-Grade</h4>
+                     <p className="text-sm text-gray-600 px-8 leading-relaxed max-w-xs">
+                         Advanced active-driven formulations produced in lab-controlled sterile environments.
+                     </p>
+                 </div>
+             </div>
+          </div>
         </div>
       </section>
     );

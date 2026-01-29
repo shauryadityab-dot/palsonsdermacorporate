@@ -8,11 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 const GlobalSourcing = () => {
   const canvasRef = useRef();
   const sectionRef = useRef(null);
-  const [focusLocation, setFocusLocation] = useState([0, 0]); // [phi, theta] in radians
+  const pointerInteracting = useRef(null);
+  const pointerInteractionMovement = useRef(0);
+  const [activeCountry, setActiveCountry] = useState(null);
+  const focusRef = useRef({ phi: 0 });
 
   // Ingredient Data with Coordinates (approximate centers)
-  // Phi (lat) = (90 - lat) * (PI/180)
-  // Theta (lng) = (lng + 180) * (PI/180) - usually needs some adjustment for Cobe
   const locations = [
     {
       country: "USA",
@@ -91,6 +92,13 @@ const GlobalSourcing = () => {
       return { location: [lat, long], size: 0.05 };
   });
 
+  const handleCountryClick = (index) => {
+      setActiveCountry(index);
+      const longitude = locations[index].coords[1];
+      // Convert longitude to phi (radians).
+      focusRef.current.phi = longitude * Math.PI / 180;
+  };
+
   useEffect(() => {
     let phi = 0;
 
@@ -111,18 +119,32 @@ const GlobalSourcing = () => {
       offset: [-500, 500],
       markers: markers,
       onRender: (state) => {
-        // Called on every animation frame.
-        // state.phi = phi
-        state.phi = phi + focusLocation[0]; 
-        // We can rotate automatically or focus
-        phi += 0.003;
+        // If user is interacting via pointer
+        if (pointerInteracting.current !== null) {
+            const delta = pointerInteractionMovement.current;
+            pointerInteractionMovement.current = delta;
+            phi += delta * 0.005;
+        } 
+        // If a country is active, rotate towards it
+        else if (activeCountry !== null) {
+            let target = focusRef.current.phi;
+            // Adjust smooth interpolation
+            const dist = target - phi;
+            phi += dist * 0.05;
+        } 
+        // Auto rotate default
+        else {
+            phi += 0.003;
+        }
+
+        state.phi = phi;
       },
     });
 
     return () => {
       globe.destroy();
     };
-  }, []);
+  }, [activeCountry]);
 
   return (
     <section ref={sectionRef} className="py-20 md:py-32 bg-[#0B1121] text-white overflow-hidden border-b border-white/10 relative">
@@ -144,30 +166,75 @@ const GlobalSourcing = () => {
                 </div>
 
                 {/* Content Side */}
-                <div className="w-full md:w-1/2">
-                    <h2 className="text-accent font-mono text-sm tracking-widest mb-4">GLOBAL SOURCING</h2>
-                    <h3 className="text-4xl md:text-6xl font-serif mb-8 leading-none">
-                        Best-in-Class <br /> <span className="text-stroke">Ingredients</span>
-                    </h3>
+                <div className="w-full md:w-1/2 flex flex-col gap-10">
+                    <div>
+                        <h2 className="text-accent font-mono text-sm tracking-widest mb-4 uppercase">Section 2</h2>
+                        <h3 className="text-3xl md:text-5xl font-serif mb-6 leading-none">
+                            International <br /> <span className="text-stroke">Ingredient Sourcing</span>
+                        </h3>
+                        
+                        <div className="space-y-6 text-white/70 text-sm leading-relaxed mb-8">
+                             <div>
+                                <h4 className="text-white font-serif text-lg mb-2">Why We Source Ingredients Globally</h4>
+                                <p>
+                                    Great formulations start with great ingredients. We source globally because certain ingredients perform best when sourced from their regions of origin—where climate, soil, and expertise align. By working with globally renowned suppliers, we ensure access to higher purity grades, better stability profiles, and clinically validated actives.
+                                </p>
+                             </div>
+                        </div>
+                    </div>
                     
-                    <div className="h-[400px] overflow-y-auto pr-4 custom-scrollbar space-y-8">
-                        {locations.map((loc, idx) => (
-                            <div key={idx} className="group border-l-2 border-white/10 pl-6 hover:border-accent transition-colors duration-300">
-                                <h4 className="text-2xl font-light mb-2 text-white group-hover:text-accent">{loc.country}</h4>
-                                <div className="space-y-4">
-                                    {loc.sources.map((source, sIdx) => (
-                                        <div key={sIdx}>
-                                            <p className="text-xs uppercase tracking-wider text-white/50 mb-1">{source.supplier}</p>
-                                            <ul className="text-sm text-white/80 font-light space-y-1">
-                                                {source.items.map((item, iIdx) => (
-                                                    <li key={iIdx}>{item}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    ))}
+                    {/* Interactive List */}
+                    <div>
+                        <p className="text-accent text-xs font-mono uppercase tracking-widest mb-4">Explore Our Sources</p>
+                        <div className="h-[300px] overflow-y-auto pr-4 custom-scrollbar space-y-4 bg-white/5 p-4 border border-white/10 rounded-sm">
+                            {locations.map((loc, idx) => (
+                                <div 
+                                    key={idx} 
+                                    onClick={() => handleCountryClick(idx)}
+                                    className={`group border-l-2 pl-4 cursor-pointer transition-all duration-300 ${activeCountry === idx ? 'border-accent bg-white/5 py-3' : 'border-white/10 hover:border-white/50'}`}
+                                >
+                                    <div className="flex justify-between items-center mb-1">
+                                        <h4 className={`text-xl font-light transition-colors ${activeCountry === idx ? 'text-accent' : 'text-white group-hover:text-white/80'}`}>
+                                            {loc.country}
+                                        </h4>
+                                        {activeCountry === idx && <span className="text-[10px] text-accent animate-pulse">● ACTIVE</span>}
+                                    </div>
+                                    
+                                    <div className={`space-y-3 transition-all duration-500 overflow-hidden ${activeCountry === idx ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}> 
+                                        {loc.sources.map((source, sIdx) => (
+                                            <div key={sIdx} className="border-t border-white/10 pt-2">
+                                                <p className="text-[10px] uppercase tracking-wider text-white/50 mb-1">{source.supplier}</p>
+                                                <ul className="text-xs text-white/80 font-mono space-y-1">
+                                                    {source.items.map((item, iIdx) => (
+                                                        <li key={iIdx}>- {item}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* How & Consumer Sections */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                        <div>
+                             <h4 className="text-white font-serif text-lg mb-3">How We Do It Differently</h4>
+                             <ul className="space-y-2 text-white/60">
+                                <li className="flex gap-2"><span className="text-accent">▹</span> Suppliers vetted for compliance</li>
+                                <li className="flex gap-2"><span className="text-accent">▹</span> Ingredients re-tested upon arrival</li>
+                                <li className="flex gap-2"><span className="text-accent">▹</span> Long-term strategic partnerships</li>
+                             </ul>
+                        </div>
+                        <div>
+                             <h4 className="text-white font-serif text-lg mb-3">Consumer Benefits</h4>
+                             <ul className="space-y-2 text-white/60">
+                                <li className="flex gap-2"><span className="text-accent">▹</span> Better product efficacy</li>
+                                <li className="flex gap-2"><span className="text-accent">▹</span> Reduced risk of irritation</li>
+                                <li className="flex gap-2"><span className="text-accent">▹</span> Consistent results</li>
+                             </ul>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -5,17 +5,23 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const milestones = [
-  { year: '2010', title: 'Inception', description: 'Founded by Dr. A. Vance with a focus on barrier repair.', image: '/assets/side-view-smiley-woman-posing.webp', 
-    sideInfo: { value: '01', label: 'First Patent Filing' } 
+  { year: '1984', title: 'Start of a Legacy', description: 'Establishment of Palsons as a pharmaceutical company.', image: '/assets/Factory.webp', 
+    sideInfo: { value: '1984', label: 'Inception' } 
   },
-  { year: '2015', title: 'Patent #402', description: 'Breakthrough in peptide delivery systems.', image: '/assets/young-beautiful-smiling-female-trendy-summer-white-dress-sexy-carefree-woman-posing-near-blue-wall-studio-positive-model-having-fun-cheerful-happy-isolated.webp',
-    sideInfo: { value: '500+', label: 'Clinical Trials' }
+  { year: '1993', title: 'Dermatology Focus', description: 'Starting of dermatology division.', image: '/assets/applying-face-serum.jpg',
+    sideInfo: { value: '1st', label: 'Derma Step' }
   },
-  { year: '2021', title: 'Clinical Trials', description: 'FDA clearance for our core restructuring serum.', image: '/assets/Global-Cosmetics-Cosmetic-Manufacturer-Production-Process.webp',
-    sideInfo: { value: '98%', label: 'Efficacy Rate' }
+  { year: '2003', title: 'Full Commitment', description: 'Entering into full dermatology specialization.', image: '/assets/side-view-smiley-woman-posing.webp',
+    sideInfo: { value: '100%', label: 'Dedication' }
   },
-  { year: '2026', title: 'Global Apex', description: 'Standard of care in 45 countries.', image: '/assets/young-girl-with-perfect-light-brown-skin-beautiful-curly-black-hair-smiling-camera-studio.webp',
-    sideInfo: { value: '45+', label: 'Countries Served' }
+  { year: '2011', title: 'Wizderm Clinic', description: 'Establishment of Wizderm specialist skin clinic.', image: '/assets/Procedure Room.webp',
+    sideInfo: { value: 'Clinic', label: 'Excellence' }
+  },
+  { year: '2020', title: 'Neolayr Launch', description: 'Starting of the premium Neolayr brand.', image: '/assets/brandshoot.webp',
+    sideInfo: { value: 'Brand', label: 'Innovation' }
+  },
+  { year: '2026', title: 'New Horizons', description: 'Upcoming new state-of-the-art factory.', image: '/assets/cosmetics-factory.jpg',
+    sideInfo: { value: 'Future', label: 'Expansion' }
   },
 ];
 
@@ -69,7 +75,15 @@ const LegacyTimeline = () => {
       </div>
 
       <div className="container relative z-10 w-full max-w-5xl">
-        <h2 className="text-center text-xs font-bold uppercase tracking-[0.4em] mb-20 text-white font-sans">Legacy / Timeline</h2>
+        <div className="text-center max-w-4xl mx-auto mb-24 px-4">
+            <h2 className="text-xs font-bold uppercase tracking-[0.4em] mb-8 text-accent font-sans">Our Milestones</h2>
+            <h3 className="text-2xl md:text-3xl font-serif leading-snug text-white mb-6">
+                We aspire to provide quality and trusted skincare and offer innovative solutions to raise general skincare awareness irrespective of race and gender.
+            </h3>
+            <p className="text-sm md:text-base font-sans text-gray-400 leading-relaxed max-w-2xl mx-auto">
+                Mastery and Advancement are our primary goals, and we dedicate our resources and upgraded scientific research from top dermatological experts to offer solutions to various skin and hair problems.
+            </p>
+        </div>
         
         <div className="relative">
           {/* Central Line - Hidden on Mobile */}

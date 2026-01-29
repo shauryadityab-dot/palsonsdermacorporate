@@ -52,6 +52,45 @@ const brandsData = [
             'Matte finish suitable for all-day wear.'
         ],
         image: '/assets/neolayrprologo.webp'
+    },
+    {
+        id: 'ridacne',
+        name: 'Ridacne',
+        tagline: 'Specialized Acne Care for Clear Skin',
+        desc: 'Ridacne is a specialized skincare line designed to effectively combat acne while maintaining skin health. Featuring products like Ridacne Foaming Face Wash and Ridacne SA Serum, the range utilizes potent ingredients like salicylic acid and botanical extracts to reduce acne, regulate sebum production, and unclog pores.',
+        accomplishments: [
+            'Formulated with high-grade Salicylic Acid for deep pore cleansing.',
+            'Clinically proven to reduce active acne and prevent future breakouts.',
+            'Regulates excess sebum production without over-drying the skin.',
+            'Enriched with botanical extracts to soothe inflammation.'
+        ],
+        image: '/assets/ridacne.png'
+    },
+    {
+        id: 'sunmate',
+        name: 'Sunmate',
+        tagline: 'Dermatologist Recommended Sun Protection',
+        desc: 'Sunmate offers a range of dermatologist-recommended, non-comedogenic sunscreens tailored for oily and acne-prone skin. Known for their non-greasy, matte-finish formulas, products like Sunmate SPF 30+ and Sunmate Max SPF 100+ provide superior broad-spectrum UVA/UVB protection.',
+        accomplishments: [
+            'Available in SPF 30+ PA+++ and high-protection SPF 100+ PA++++.',
+            'Water-resistant, sweat-proof gel-cream formula ideal for humid climates.',
+            'Non-comedogenic and oil-free, preventing clogged pores.',
+            'Provides a matte finish with no white cast.'
+        ],
+        image: '/assets/sunmate.png'
+    },
+    {
+        id: 'isdin',
+        name: 'ISDIN',
+        tagline: 'International Dermatological Innovation',
+        desc: 'ISDIN, a global leader from Barcelona, Spain, has been providing advanced dermatological solutions since 1975. As a certified B Corp present in over 40 countries, ISDIN is renowned for its Fotoprotector range, perfectly blending rigorous pharmaceutical science with cosmetic elegance.',
+        accomplishments: [
+            'Global leader in the Spanish dermatology market with presence in 40+ countries.',
+            'Certified B Corp committed to social and environmental responsibility.',
+            'Pioneers in advanced photoprotection technology (Fotoprotector range).',
+            'Combines pharmaceutical efficacy with superior cosmetic textures.'
+        ],
+        image: '/assets/Isdin.png'
     }
 ];
 

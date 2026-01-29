@@ -7,6 +7,9 @@ const Brands = () => {
         { name: 'Qsera', src: '/assets/Qsera.webp' },
         { name: 'Wizderm', src: '/assets/wizderm.webp' },
         { name: 'Neolayr Pro', src: '/assets/neolayrprologo.webp' },
+        { name: 'Ridacne', src: '/assets/ridacne.png' },
+        { name: 'Sunmate', src: '/assets/sunmate.png' },
+        { name: 'ISDIN', src: '/assets/Isdin.png' },
     ];
 
     // Create a set of brands that is long enough to cover most screens
