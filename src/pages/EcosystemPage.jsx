@@ -166,18 +166,18 @@ const EcosystemPage = () => {
             ]
         },
         {
-            title: "Wizderm Centre Of Dermatology",
-            subtitle: "Education & Future",
-            description: "Practicing dermatology with the best and preparing the next generation of specialists through rigorous training and hands-on mentorship.",
+            title: "Wizderm Pathlab",
+            subtitle: "Diagnostic Precision",
+            description: "A state-of-the-art pathology center committed to deliverying accurate, timely, and reliable diagnostic services.",
             contentBlocks: [
                 {
-                    title: "Academic Institution",
-                    text: "The Wizderm Centre of Dermatology is more than a clinic; it is an academic institution. We are committed to nurturing the next generation of dermatologists through comprehensive training programs.",
+                    title: "Advanced Diagnostics",
+                    text: "Wizderm Pathlab is equipped with cutting-edge technology to ensure the highest standards of diagnostic accuracy. We understand that precise diagnosis is the foundation of effective treatment.",
                     image: "/assets/DSC_2180.webp"
                 },
                 {
-                    title: "Mentorship & Training",
-                    text: "Our residents learn from seasoned experts, gaining practical experience with the latest technologies and treatment modalities. We provide fellowships and hands-on mentorship.",
+                    title: "Expert Pathologists",
+                    text: "Our team of experienced pathologists and technicians work tirelessly to maintain rigorous quality control, ensuring that every report you receive is trustworthy and precise.",
                     image: "/assets/DSC_4611.webp"
                 }
             ],
@@ -203,6 +203,89 @@ const EcosystemPage = () => {
                         An integrated network of clinical care, research, and education
                     </p>
                 </div>
+            </section>
+
+            {/* Our Core Values */}
+            <section className="py-24 bg-[#0B1121] border-b border-white/10 relative overflow-hidden">
+                 <div className="container mx-auto px-4">
+                     <div className="text-center mb-16">
+                         <h2 className="text-3xl md:text-5xl font-serif text-white mb-6">Our Core Values</h2>
+                         <div className="w-24 h-1 bg-white/20 mx-auto"></div>
+                     </div>
+
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                         {/* Integrity - Orange */}
+                         <div className="group p-6 border border-white/5 hover:bg-white/5 transition-colors text-center">
+                             <div className="w-16 h-16 mx-auto mb-6 text-orange-400 group-hover:scale-110 transition-transform duration-500">
+                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                     <path d="M12 3v18M3 12h18M5 9l-3 3 3 3M19 9l3 3-3 3" opacity="0"/>
+                                     <path d="M16 3h5v5M8 3H3v5"/><path d="M12 22v-8"/><path d="M8 10h8"/><path d="M4 14h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2"/><path d="M20 14h-2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h2"/>
+                                     <path d="M12 3l-4 4h8l-4-4z"/>
+                                 </svg>
+                             </div>
+                             <h3 className="text-2xl font-serif text-orange-400 mb-2">Integrity</h3>
+                             <p className="text-white/60 text-sm leading-relaxed">
+                                 Always do what's right. Even when no one is watching.
+                             </p>
+                         </div>
+
+                         {/* Retention - Purple */}
+                         <div className="group p-6 border border-white/5 hover:bg-white/5 transition-colors text-center">
+                             <div className="w-16 h-16 mx-auto mb-6 text-purple-400 group-hover:scale-110 transition-transform duration-500">
+                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                 </svg>
+                             </div>
+                             <h3 className="text-2xl font-serif text-purple-400 mb-2">Retention</h3>
+                             <p className="text-white/60 text-sm leading-relaxed">
+                                 Acquire with the intention to retain and retain with the intention to grow.
+                             </p>
+                         </div>
+
+                         {/* L&D - Pink */}
+                         <div className="group p-6 border border-white/5 hover:bg-white/5 transition-colors text-center">
+                             <div className="w-16 h-16 mx-auto mb-6 text-pink-400 group-hover:scale-110 transition-transform duration-500">
+                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                     <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                 </svg>
+                             </div>
+                             <h3 className="text-2xl font-serif text-pink-400 mb-2">L&D</h3>
+                             <p className="text-white/60 text-sm leading-relaxed">
+                                 Never stop learning because life never stops teaching.
+                             </p>
+                         </div>
+
+                         {/* Innovation - Blue */}
+                         <div className="group p-6 border border-white/5 hover:bg-white/5 transition-colors text-center">
+                             <div className="w-16 h-16 mx-auto mb-6 text-blue-400 group-hover:scale-110 transition-transform duration-500">
+                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                     <path d="M12 2a9 9 0 0 1 9 9c0 1.6-.7 3.1-2 4.2v3.8a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-3.8A8.99 8.99 0 0 1 3 11a9 9 0 0 1 9-9z"/>
+                                     <path d="M9 22h6"/>
+                                     <path d="M12 14v4"/>
+                                 </svg>
+                             </div>
+                             <h3 className="text-2xl font-serif text-blue-400 mb-2">Innovation</h3>
+                             <p className="text-white/60 text-sm leading-relaxed">
+                                 Find a way to do it better.
+                             </p>
+                         </div>
+
+                         {/* Focus - Green */}
+                         <div className="group p-6 border border-white/5 hover:bg-white/5 transition-colors text-center">
+                             <div className="w-16 h-16 mx-auto mb-6 text-green-400 group-hover:scale-110 transition-transform duration-500">
+                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                     <circle cx="12" cy="12" r="10"/>
+                                     <circle cx="12" cy="12" r="6"/>
+                                     <circle cx="12" cy="12" r="2"/>
+                                 </svg>
+                             </div>
+                             <h3 className="text-2xl font-serif text-green-400 mb-2">Focus</h3>
+                             <p className="text-white/60 text-sm leading-relaxed">
+                                 Focus on what matters. Eliminate the rest.
+                             </p>
+                         </div>
+                     </div>
+                 </div>
             </section>
 
             {/* Content Sections */}
