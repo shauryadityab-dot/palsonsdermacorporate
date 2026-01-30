@@ -80,18 +80,23 @@ const BrandShowcase = () => {
   const brandSet = [...brands, ...brands];
 
   return (
-    <div id="our-brands" className="relative overflow-hidden bg-black text-white">
-      {/* Section Header */}
-      <div className="absolute top-0 left-0 z-40 p-8 md:p-12 w-full pointer-events-none">
-         <div className="flex items-center gap-4">
-            <span className="w-12 h-[1px] bg-white/50"></span>
-            <span className="text-sm md:text-base font-sans uppercase tracking-[0.4em] text-white/80">Our Brands</span>
+    <div id="our-brands" className="flex flex-col bg-black text-white">
+      {/* Section Header - Navy Blue Strip */}
+      <div className="w-full py-12 px-8 md:px-12 bg-[#151e32] z-40 relative border-b border-white/10">
+         <div className="container mx-auto">
+            <div className="flex items-center gap-4 mb-4">
+                <span className="w-12 h-[1px] bg-accent"></span>
+                <span className="text-sm md:text-base font-sans uppercase tracking-[0.4em] text-white/90">Our Brands</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-serif text-white max-w-2xl leading-tight">
+                Pioneering solutions across dermatological spectrums.
+            </h2>
          </div>
       </div>
 
       {/* Marquee Wrapper */}
       <div 
-        className="flex animate-marquee hover:[animation-play-state:paused]"
+        className="flex animate-marquee hover:[animation-play-state:paused] flex-1"
         style={{ animationDuration: '60s' }} // Increased speed for better flow
       >
         {brandSet.map((brand, i) => (
