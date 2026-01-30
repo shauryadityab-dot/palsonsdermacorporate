@@ -4,93 +4,80 @@ const brandsData = [
     {
         id: 'qsera',
         name: 'Qsera',
-        tagline: 'Science of Hair Vitality',
-        desc: 'Advanced peptide therapy focusing on the anagen phase of hair growth. Qsera represents our commitment to solving complex trichological challenges.',
+        tagline: 'Advanced Hair Vitality',
+        desc: 'Clinically proven hair care solutions. Q-Sera is a specialized hair care line formulated to combat hair thinning and promote healthier growth. Unlike standard hair products, it focuses on the root of the problem—literally. The range features advanced serums and revitalizing shampoos enriched with peptides and plant-based bioactives.',
         accomplishments: [
-            'Awarded "Best Hair Care Innovation 2024" by DermaSummit.',
-            'Clinically proven to increase hair density by 85% in 12 weeks.',
-            'Patented delivery system ensuring deep follicle penetration.',
-            'Adopted by over 5000+ leading dermatologists.'
+            'Reduces Hair Fall',
+            'Strengthens Roots',
+            'Promotes Growth',
+            'Enriched with Peptides'
         ],
         image: '/assets/Qsera.webp'
     },
     {
         id: 'nmfe',
         name: 'NMFE',
-        tagline: 'Lipid Barrier Restoration',
-        desc: 'A complete range of moisturizing solutions mimicking the skin\'s natural lipid barrier for optimal hydration and protection.',
+        tagline: 'Deep Hydration & Barrier Support',
+        desc: 'Restoring the natural protective barrier. NMFe is dedicated to deep hydration and barrier support. Designed for dry, sensitive, and compromised skin, this range goes beyond simple moisturizing to restore the skin\'s natural defenses. The formulations are enriched with soothing agents like Aloe Vera, Vitamin E, and Pentavitin.',
         accomplishments: [
-            'Gold Standard in adjuvant therapy for Atopic Dermatitis.',
-            'Unique "Hydration Lock" technology provides 24-hour moisture rentention.',
-            'Non-comedogenic certification from Global Skin Health Institute.',
-            'Trusted choice for sensitive skin maintenance.'
+            'Restores Skin Barrier',
+            'Deep Hydration',
+            'Soothing Formula',
+            'Enriched with Aloe Vera & Vitamin E'
         ],
         image: '/assets/nmfe.webp'
     },
     {
         id: 'wizderm',
         name: 'Wizderm',
-        tagline: 'Professional Skin Correction',
-        desc: 'Targeted treatments for hyperpigmentation and skin tone unevenness using safe, potent active ingredients.',
+        tagline: 'Clinical Skin & Hair Services',
+        desc: 'Advanced dermatological clinic for skin and hair. Wizderm is a premier clinical destination for advanced skin and hair care. It offers personalized consultations and scientifically proven treatments, moving beyond products to provide holistic dermatological solutions.',
         accomplishments: [
-            'Demonstrated 60% reduction in melanin synthesis in vitro.',
-            'Fast-acting formula shows results in as little as 4 weeks.',
-            'Preferred pre/post-procedure care for laser treatments.',
-            'Hypoallergenic tested on diverse skin types.'
+            'Personalized Consultations',
+            'Advanced Treatments',
+            'Acne Management',
+            'Anti-Aging Therapies'
         ],
         image: '/assets/wizderm.webp'
     },
     {
         id: 'neolayr',
         name: 'Neolayr Pro',
-        tagline: 'Advanced Photoprotection',
-        desc: 'Next-generation sun protection formulations offering broad-spectrum defense against UVA, UVB, and environmental pollutants.',
+        tagline: 'Everyday Skincare Essentials',
+        desc: 'Science-backed daily care basics. Neolayr Pro makes effective skincare accessible for everyday concerns. Whether tackling acne, dullness, or dehydration, this range delivers essential actives like Vitamin C, Salicylic Acid, and Niacinamide in balanced formulas.',
         accomplishments: [
-            'SPF 50+ PA++++ rating confirmed by In-Vivo testing.',
-            'Water-resistant formulation ideal for active lifestyles.',
-            'Enriched with antioxidants to neutralize free radical damage.',
-            'Matte finish suitable for all-day wear.'
+            'Acne Control & Brightening',
+            'Deep Hydration',
+            'Daily Skin Defense',
+            'Essential Actives'
         ],
         image: '/assets/neolayrprologo.webp'
     },
     {
         id: 'ridacne',
         name: 'Ridacne',
-        tagline: 'Specialized Acne Care for Clear Skin',
-        desc: 'Ridacne is a specialized skincare line designed to effectively combat acne while maintaining skin health. Featuring products like Ridacne Foaming Face Wash and Ridacne SA Serum, the range utilizes potent ingredients like salicylic acid and botanical extracts to reduce acne, regulate sebum production, and unclog pores.',
+        tagline: 'Specialized Acne Care',
+        desc: 'Dermatologist-oriented acne solutions. Ridacne is specifically engineered for oily and acne-prone skin. Its signature foaming face wash provides a deep cleanse that removes excess oil and bacteria without stripping the skin of its essential moisture.',
         accomplishments: [
-            'Formulated with high-grade Salicylic Acid for deep pore cleansing.',
-            'Clinically proven to reduce active acne and prevent future breakouts.',
-            'Regulates excess sebum production without over-drying the skin.',
-            'Enriched with botanical extracts to soothe inflammation.'
+            'Beads-free Gentle Foam',
+            'Controls Excess Oil',
+            'Mild Exfoliating Action',
+            'Regulates Sebum'
         ],
         image: '/assets/ridacne.png'
     },
     {
         id: 'sunmate',
         name: 'Sunmate',
-        tagline: 'Dermatologist Recommended Sun Protection',
-        desc: 'Sunmate offers a range of dermatologist-recommended, non-comedogenic sunscreens tailored for oily and acne-prone skin. Known for their non-greasy, matte-finish formulas, products like Sunmate SPF 30+ and Sunmate Max SPF 100+ provide superior broad-spectrum UVA/UVB protection.',
+        tagline: 'Expert Sun Protection',
+        desc: 'Broad-spectrum defense for all skin types. Sunmate is the expert defense against solar damage. This specialized sunscreen line offers broad-spectrum protection against both UVA and UVB rays, preventing sunburn, tanning, and long-term photo-aging.',
         accomplishments: [
-            'Available in SPF 30+ PA+++ and high-protection SPF 100+ PA++++.',
-            'Water-resistant, sweat-proof gel-cream formula ideal for humid climates.',
-            'Non-comedogenic and oil-free, preventing clogged pores.',
-            'Provides a matte finish with no white cast.'
+            'SPF 30+ to SPF 100+',
+            'Non-greasy Matte Finish',
+            'Sweat & Water Resistant',
+            'Broad-Spectrum Protection'
         ],
         image: '/assets/sunmate.png'
-    },
-    {
-        id: 'isdin',
-        name: 'ISDIN',
-        tagline: 'International Dermatological Innovation',
-        desc: 'ISDIN, a global leader from Barcelona, Spain, has been providing advanced dermatological solutions since 1975. As a certified B Corp present in over 40 countries, ISDIN is renowned for its Fotoprotector range, perfectly blending rigorous pharmaceutical science with cosmetic elegance.',
-        accomplishments: [
-            'Global leader in the Spanish dermatology market with presence in 40+ countries.',
-            'Certified B Corp committed to social and environmental responsibility.',
-            'Pioneers in advanced photoprotection technology (Fotoprotector range).',
-            'Combines pharmaceutical efficacy with superior cosmetic textures.'
-        ],
-        image: '/assets/Isdin.png'
     }
 ];
 

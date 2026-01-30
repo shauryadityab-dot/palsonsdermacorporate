@@ -6,55 +6,47 @@ const BrandShowcase = () => {
       id: 'qsera',
       name: 'Qsera',
       tagline: 'Advanced Hair Vitality',
-      description: 'Qsera revolutionizes hair care with clinically proven peptides that reactivate hair follicles.',
-      stats: [
-        { value: '85%', label: 'Regrowth Rate' },
-        { value: '12 Weeks', label: 'Visible Results' },
-        { value: 'Clinical', label: 'Dermatologist Tested' }
+      description: 'Clinically proven hair care solutions.',
+      details: [
+        "Q-Sera is a specialized hair care line formulated to combat hair thinning and promote healthier growth. Unlike standard hair products, it focuses on the root of the problem—literally.",
+        "The range features advanced serums and revitalizing shampoos enriched with peptides and plant-based bioactives. These ingredients work synergistically to nourish hair follicles, strengthen roots, and improve overall scalp health."
       ],
-      aboutBrand: 'Qsera develops clinical-grade skincare solutions designed for specific dermatological issues such as pigmentation, melasma, and uneven skin tone. The brand focuses on targeted actives, high-performance formulations, and visible results. Qsera is popular among dermatologists because its products are formulated to work well with treatment plans and sensitive skin.',
       image: '/assets/Qsera.webp', 
       bgImage: '/assets/pexels-chloe-amaya-1047565-4079215.jpg' 
     },
     {
       id: 'nmfe',
       name: 'NMFE',
-      tagline: 'Lipid Barrier Restoration',
-      description: 'Intensive hydration technology matching the skin\'s natural moisturizing factors.',
-      stats: [
-        { value: '24h', label: 'Hydration Lock' },
-        { value: '100%', label: 'Non-Comedogenic' },
-        { value: 'Safe', label: 'For Sensitive Skin' }
+      tagline: 'Deep Hydration & Barrier Support',
+      description: 'Restoring the natural protective barrier.',
+      details: [
+        "NMFe is dedicated to deep hydration and barrier support. Designed for dry, sensitive, and compromised skin, this range goes beyond simple moisturizing to restore the skin's natural defenses.",
+        "The formulations are enriched with soothing agents like Aloe Vera, Vitamin E, and Pentavitin, which help attract and retain moisture. From daily lotions to intensive creams, NMFe provides relief for flaky, rough, or irritated skin."
       ],
-      aboutBrand: 'NMFE is a dermatology-focused skincare brand built around science-backed formulations. The products target everyday skin concerns like acne, pigmentation, dryness, and sensitivity with dermatologist-approved ingredients. The brand positions itself as reliable, minimal, and results-driven — aiming for effective skincare without unnecessary complexity.',
       image: '/assets/nmfe.webp',
       bgImage: '/assets/pexels-ron-lach-10222458.jpg'
     },
     {
       id: 'wizderm',
       name: 'Wizderm',
-      tagline: 'Clinical Skin Correction',
-      description: 'Professional-grade formulations for targeted hyperpigmentation and brightening control.',
-      stats: [
-        { value: '9/10', label: 'Patient Satisfaction' },
-        { value: '4 Weeks', label: 'Tone Correction' },
-        { value: 'Active', label: 'Melanin Inhibition' }
+      tagline: 'Clinical Skin & Hair Services',
+      description: 'Advanced dermatological clinic for skin and hair.',
+      details: [
+        "Wizderm is a premier clinical destination for advanced skin and hair care. It offers personalized consultations and scientifically proven treatments, moving beyond products to provide holistic dermatological solutions.",
+        "From specialized acne management and anti-aging therapies to hair restoration, our expert dermatologists use state-of-the-art technology to deliver visible, long-lasting results tailored to your unique needs."
       ],
-      aboutBrand: 'Whether it’s tackling stubborn acne, reversing signs of ageing, addressing pigmentation, or managing hair loss, our expert dermatologists at Wizderm offer personalized consultations and cutting-edge treatments tailored to your unique skin and hair care needs.\nExperience world-class care designed to help you look and feel your best!!',
       image: '/assets/wizderm.webp',
       bgImage: '/assets/pexels-polina-kovaleva-6543617.jpg'
     },
     {
       id: 'neolayr',
       name: 'Neolayr Pro',
-      tagline: 'Multi-Layer Protection',
-      description: 'Advanced photostability and environmental shielding for compromised skin.',
-      stats: [
-        { value: 'SPF 50+', label: 'Broad Spectrum' },
-        { value: 'PA++++', label: 'UVA Protection' },
-        { value: '8h', label: 'Water Resistant' }
+      tagline: 'Everyday Skincare Essentials',
+      description: 'Science-backed daily care basics.',
+      details: [
+        "Neolayr Pro makes effective skincare accessible for everyday concerns. Whether tackling acne, dullness, or dehydration, this range delivers essential actives like Vitamin C, Salicylic Acid, and Niacinamide in balanced formulas.",
+        "Designed for daily maintenance, Neolayr Pro offers a complete regimen—from deep-cleaning face washes to hydrating moisturizers and targeted serums. It is the practical choice for maintaining clear, healthy-looking skin day after day."
       ],
-      aboutBrand: 'NEOLAYR PRO means a new layer of skin for the pro in you. At the heart of NEOLAYR PRO lies a legacy inherited from Neolayr, a brand born in 2020 from the stable of Palsons Derma with 30 years of expertise in dermatology with a singular mission: to elevate skincare to an experience that nourishes both body and soul. Our core essence is built on authenticity, setting us apart amidst a sea of skincare brands.',
       image: '/assets/neolayrprologo.webp',
       bgImage: '/assets/pexels-mandiri-abadi-396768996-14805033.jpg'
     },
@@ -62,13 +54,11 @@ const BrandShowcase = () => {
       id: 'ridacne',
       name: 'Ridacne',
       tagline: 'Specialized Acne Care',
-      description: 'A specialized skincare line designed to reduce acne, regulate sebum production, and unclog pores using salicylic acid and botanical extracts.',
-      stats: [
-        { value: 'Acne', label: 'Reduction' },
-        { value: 'Sebum', label: 'Regulation' },
-        { value: 'SA', label: 'Active' }
+      description: 'Dermatologist-oriented acne solutions.',
+      details: [
+        "Ridacne is specifically engineered for oily and acne-prone skin. Its signature foaming face wash provides a deep cleanse that removes excess oil and bacteria without stripping the skin of its essential moisture.",
+        "The formula acts as a mild exfoliant and sebum regulator, helping to unclog pores and control breakouts. Free from harsh beads, it offers a gentle yet effective way to manage acne and maintain a clear complexion."
       ],
-      aboutBrand: 'Ridacne is dedicated to acne-prone skin, offering products like Foaming Face Wash and SA Serum to maintain clear, healthy skin.',
       image: '/assets/ridacne.png',
       bgImage: '/assets/smiling-asian-lady-touching-her-clear-skin.jpg'
     },
@@ -76,29 +66,13 @@ const BrandShowcase = () => {
       id: 'sunmate',
       name: 'Sunmate',
       tagline: 'Expert Sun Protection',
-      description: 'Non-comedogenic, oil-free sunscreens with broad-spectrum UVA/UVB protection, designed for oily and acne-prone skin.',
-      stats: [
-        { value: 'SPF 100+', label: 'Max Protection' },
-        { value: 'Matte', label: 'Finish' },
-        { value: 'Oil-Free', label: 'Formula' }
+      description: 'Broad-spectrum defense for all skin types.',
+      details: [
+        "Sunmate is the expert defense against solar damage. This specialized sunscreen line offers broad-spectrum protection against both UVA and UVB rays, preventing sunburn, tanning, and long-term photo-aging.",
+        "Available in lightweight gel-cream formulations, Sunmate is designed for comfort. It offers a non-greasy, matte finish that is perfect for Indian weather conditions, ensuring your skin stays protected without feeling weighed down."
       ],
-      aboutBrand: 'Sunmate offers a range of high-performance sunscreens, including SPF 30+ and SPF 100+, ensuring your skin stays protected without feeling greasy.',
       image: '/assets/sunmate.png',
       bgImage: '/assets/young-beautiful-smiling-female-trendy-summer-white-dress-sexy-carefree-woman-posing-near-blue-wall-studio-positive-model-having-fun-cheerful-happy-isolated.jpg'
-    },
-    {
-      id: 'isdin',
-      name: 'ISDIN',
-      tagline: 'International Solutions',
-      description: 'A global leader from Barcelona blending pharmaceutical science with cosmetic elegance for advanced skin care.',
-      stats: [
-        { value: '40+', label: 'Countries' },
-        { value: '1975', label: 'Founded' },
-        { value: 'B Corp', label: 'Certified' }
-      ],
-      aboutBrand: 'ISDIN is an international reference in dermatology, committed to innovation and sustainability, providing advanced solutions for skin health.',
-      image: '/assets/Isdin.png',
-      bgImage: '/assets/Exteriors.jpg'
     }
   ];
 
@@ -133,23 +107,24 @@ const BrandShowcase = () => {
              <div className="container relative z-20 mx-auto px-6 grid grid-cols-1 md:grid-cols-12 h-full items-center gap-8">
                 
                 {/* Left: Brand Identity */}
-                <div className="md:col-span-7 flex flex-col justify-center h-full pr-0 md:pr-8">
+                <div className="md:col-span-6 flex flex-col justify-center h-full pr-0 md:pr-12">
                     <div className="mb-8 inline-block w-max">
                         <img src={brand.image} alt={brand.name} className="h-10 md:h-16 w-auto object-contain" />
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-serif mb-4">{brand.name}</h2>
-                    <p className="text-lg text-accent font-sans uppercase tracking-widest mb-6">{brand.tagline}</p>
-                    <p className="text-white/70 text-base leading-relaxed">{brand.description}</p>
+                    <h2 className="text-4xl md:text-6xl font-serif mb-4">{brand.name}</h2>
+                    <p className="text-sm md:text-base text-accent font-sans uppercase tracking-widest mb-6 border-l-2 border-accent pl-4">{brand.tagline}</p>
+                    <p className="text-white/60 text-lg font-light italic">{brand.description}</p>
                 </div>
 
-                {/* Right: Stats */}
-                <div className="md:col-span-5 flex flex-col justify-center gap-8 pl-0 md:pl-8 border-l border-white/10 h-3/4">
-                     {brand.stats.map((stat, idx) => (
-                        <div key={idx} className="border-t border-white/20 pt-4">
-                            <span className="block text-2xl md:text-4xl font-bold font-sans mb-1">{stat.value}</span>
-                            <span className="text-xs uppercase tracking-[0.2em] text-white/50">{stat.label}</span>
-                        </div>
-                    ))}
+                {/* Right: Detailed Content */}
+                <div className="md:col-span-6 flex flex-col justify-center pl-0 md:pl-12 border-l border-white/10 h-3/4">
+                     <div className="space-y-6">
+                        {brand.details.map((paragraph, idx) => (
+                          <p key={idx} className="text-base md:text-lg leading-relaxed font-light text-white/80 font-serif">
+                            {paragraph}
+                          </p>
+                        ))}
+                     </div>
                 </div>
              </div>
 
