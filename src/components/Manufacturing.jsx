@@ -43,7 +43,7 @@ const Manufacturing = () => {
           {/* 1. Existing Manufacturing Facility */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-32 items-center fade-in-section">
                 <div className="relative h-[500px] border border-white/10 group overflow-hidden">
-                    <img src="/assets/factory.jpg" alt="Manufacturing Facility" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" />
+                    <img src="/assets/machinery.jpg" alt="Manufacturing Facility" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0B1121] via-transparent to-transparent"></div>
                     <div className="absolute bottom-6 left-6 border-l-2 border-accent pl-4">
                         <span className="text-xs font-mono uppercase text-accent">Est. 1986</span>

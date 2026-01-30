@@ -107,6 +107,14 @@ const BrandShowcase = () => {
 
   return (
     <div id="our-brands" className="relative overflow-hidden bg-black text-white">
+      {/* Section Header */}
+      <div className="absolute top-0 left-0 z-40 p-8 md:p-12 w-full pointer-events-none">
+         <div className="flex items-center gap-4">
+            <span className="w-12 h-[1px] bg-white/50"></span>
+            <span className="text-sm md:text-base font-sans uppercase tracking-[0.4em] text-white/80">Our Brands</span>
+         </div>
+      </div>
+
       {/* Marquee Wrapper */}
       <div 
         className="flex animate-marquee hover:[animation-play-state:paused]"
