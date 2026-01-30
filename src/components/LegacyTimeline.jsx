@@ -8,10 +8,10 @@ const milestones = [
   { year: '1984', title: 'Start of a Legacy', description: 'Establishment of Palsons as a pharmaceutical company.', image: '/assets/Factory.webp', 
     sideInfo: { value: '1984', label: 'Inception' } 
   },
-  { year: '1993', title: 'Dermatology Focus', description: 'Starting of dermatology division.', image: '/assets/applying-face-serum.jpg',
+  { year: '1993', title: 'Dermatology Focus', description: 'Starting of dermatology division.', image: '/assets/labstart.webp',
     sideInfo: { value: '1st', label: 'Derma Step' }
   },
-  { year: '2003', title: 'Full Commitment', description: 'Entering into full dermatology specialization.', image: '/assets/side-view-smiley-woman-posing.webp',
+  { year: '2003', title: 'Full Commitment', description: 'Entering into full dermatology specialization.', image: '/assets/nmfe-brand.webp',
     sideInfo: { value: '100%', label: 'Dedication' }
   },
   { year: '2011', title: 'Wizderm Clinic', description: 'Establishment of Wizderm specialist skin clinic.', image: '/assets/Procedure Room.webp',
