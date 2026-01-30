@@ -118,15 +118,15 @@ const LegacyTimeline = () => {
                         >
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
-                            <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter brightness-50 group-hover:brightness-75" />
-                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-100"></div>
+                            <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter brightness-100 md:brightness-50 group-hover:brightness-75" />
+                            <div className="absolute inset-0 bg-black/10 md:bg-black/40 group-hover:bg-black/20 transition-colors duration-100"></div>
                         </div>
 
                         {/* Content Overlay */}
                         <div className="absolute inset-0 z-10 p-8 flex flex-col justify-end">
                             <div className="mb-auto"></div>
                             <h3 className="text-2xl font-bold uppercase tracking-widest mb-2 border-t border-white/30 pt-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-300 text-white">{item.title}</h3>
-                            <p className="text-sm text-gray-300 font-mono leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">{item.description}</p>
+                            <p className="text-sm text-gray-300 font-mono leading-relaxed md:opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">{item.description}</p>
                         </div>
                         </div>
                     ) : (
@@ -146,8 +146,8 @@ const LegacyTimeline = () => {
                         >
                             {/* Background Image */}
                             <div className="absolute inset-0 z-0">
-                                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter brightness-50 group-hover:brightness-75" />
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+                                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 filter brightness-100 md:brightness-50 group-hover:brightness-75" />
+                                <div className="absolute inset-0 bg-black/10 md:bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
                             </div>
     
                             {/* Content Overlay */}
