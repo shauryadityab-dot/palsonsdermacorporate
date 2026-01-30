@@ -18,25 +18,35 @@ const ScrollToTop = () => {
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Router>
         <ScrollToTop />
         <div className="antialiased bg-black min-h-screen selection:bg-white selection:text-black">
-            {/* Navigation / Header - Minimal */}
-            <nav className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 py-6 text-white pointer-events-none">
-                <a href="/" className="pointer-events-auto cursor-pointer">
+            {/* Navigation / Header - Dynamic Glassmorphism */}
+            <nav className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 text-white transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md py-4 border-b border-white/10 shadow-lg' : 'bg-transparent py-6'}`}>
+                <a href="/" className="cursor-pointer">
                     <img src="/assets/logo.webp" alt="Palsons Derma" className="h-10 w-auto object-contain" />
                 </a>
                 
-                <div className="hidden md:flex gap-8 pointer-events-auto mix-blend-difference">
-                    <a href="/#our-brands" className="uppercase text-xs tracking-widest hover:text-white/70 transition-colors">Our Brands</a>
-                    <a href="/our-people" className="uppercase text-xs tracking-widest hover:text-white/70 transition-colors">Our People</a>
-                    <a href="/innovation" className="uppercase text-xs tracking-widest hover:text-white/70 transition-colors">Innovation</a>
+                <div className="hidden md:flex gap-8">
+                    <a href="/#our-brands" className="uppercase text-xs tracking-widest hover:text-accent transition-colors">Our Brands</a>
+                    <a href="/our-people" className="uppercase text-xs tracking-widest hover:text-accent transition-colors">Our People</a>
+                    <a href="/innovation" className="uppercase text-xs tracking-widest hover:text-accent transition-colors">Innovation</a>
                     {/* Explicit link to Portfolio for easy access */}
-                    <a href="/ecosystem" className="uppercase text-xs tracking-widest hover:text-white/70 transition-colors">Our Ecosystem</a>
+                    <a href="/ecosystem" className="uppercase text-xs tracking-widest hover:text-accent transition-colors">Our Ecosystem</a>
                 </div>
 
-                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden pointer-events-auto uppercase text-xs tracking-widest relative z-50 mix-blend-difference">{isMenuOpen ? 'CLOSE' : 'MENU'}</button>
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden uppercase text-xs tracking-widest relative z-50 focus:outline-none">{isMenuOpen ? 'CLOSE' : 'MENU'}</button>
             </nav>
 
             {/* Mobile Menu Overlay */}
