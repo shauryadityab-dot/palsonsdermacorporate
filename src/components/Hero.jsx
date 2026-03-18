@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLoader } from '../context/LoaderContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -8,38 +9,33 @@ const Hero = () => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
   const textRef = useRef(null);
+  const { isLoaded } = useLoader();
 
   useEffect(() => {
-    const tl = gsap.timeline();
+    // We only want the scroll interaction, no entrance animation
+    // The Hero needs to be visible immediately.
 
-    // Initial Load Animation
-    tl.fromTo(containerRef.current, 
-      { opacity: 0 }, 
-      { opacity: 1, duration: 1.5, ease: 'power2.out' }
-    )
-    .fromTo('.hero-title', 
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: 'power3.out' },
-      "-=0.5"
-    )
-    .fromTo('.hero-sub', 
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'none' },
-      "-=0.5"
-    );
+    // If we only want the text to animate on scroll, we could do that here.
+    // However, the user asked to "just show the image and on scroll give the animation".
+    // I will ensure the text is visible by removing the opacity-0 classes below.
+  }, [isLoaded]);
 
-    // Scroll Interaction - Video Scale
-    gsap.to(videoRef.current, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom center",
-        scrub: true,
-      },
-      scale: 0.65,
-      ease: "none"
-    });
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // Scroll Interaction - Video Scale
+      gsap.to(videoRef.current, {
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom center",
+          scrub: true,
+        },
+        scale: 0.65,
+        ease: "none"
+      });
+    }, containerRef);
 
+    return () => ctx.revert();
   }, []);
 
   return (

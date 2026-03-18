@@ -5,6 +5,9 @@ import BrandsPage from './pages/BrandsPage';
 import InnovationPage from './pages/InnovationPage';
 import EcosystemPage from './pages/EcosystemPage';
 import OurPeoplePage from './pages/OurPeoplePage';
+import { LoaderProvider, useLoader } from './context/LoaderContext';
+import PageLoader from './components/PageLoader';
+import CustomCursor from './components/CustomCursor';
 // Lenis for smooth scrolling is often a good pair with GSAP, but we'll stick to native + GSAP scrub for now as requested "performance optimized". 
 // Actually, let's just make sure the scroll is smooth.
 
@@ -16,9 +19,10 @@ const ScrollToTop = () => {
     return null;
 }
 
-function App() {
+const AppContent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { isLoaded } = useLoader();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,9 +33,12 @@ function App() {
   }, []);
 
   return (
-    <Router>
-        <ScrollToTop />
-        <div className="antialiased bg-black min-h-screen selection:bg-white selection:text-black">
+    <>
+        <CustomCursor />
+        <PageLoader />
+        <Router>
+            <ScrollToTop />
+            <div className="antialiased bg-black min-h-screen selection:bg-white selection:text-black">
             {/* Navigation / Header - Dynamic Glassmorphism */}
             <nav className={`fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 text-white transition-all duration-300 ${isScrolled ? 'bg-black/80 backdrop-blur-md py-4 border-b border-white/10 shadow-lg' : 'bg-transparent py-6'}`}>
                 <a href="/" className="cursor-pointer">
@@ -69,7 +76,16 @@ function App() {
                 <p className="text-xs text-slate-500 uppercase tracking-widest">© 2026 Palsons Derma. All Rights Reserved.</p>
             </footer>
         </div>
-    </Router>
+        </Router>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <LoaderProvider>
+      <AppContent />
+    </LoaderProvider>
   );
 }
 

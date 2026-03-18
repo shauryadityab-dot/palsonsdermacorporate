@@ -17,9 +17,18 @@
   color: transparent;
 }
 
-/* Global Reset for No Curves */
-button, input, textarea, div, section, img, video {
-  border-radius: 0 !important;
+/* Global Reset */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button {
+    cursor: none;
+  }
+}
+
+button, input, textarea, img, video {
+  border-radius: 0;
 }
 
 /* Scrollbar */
