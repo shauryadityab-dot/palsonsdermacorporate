@@ -7,6 +7,8 @@ import StorytellingSection from '../components/StorytellingSection';
 import Manufacturing from '../components/Manufacturing';
 import StackedSection from '../components/StackedSection';
 import ProductScroll from '../components/ProductScroll';
+import NmfeScroll from '../components/NmfeScroll';
+import HeroProductIntro from '../components/HeroProductIntro';
 
 const Home = () => {
     return (
@@ -20,6 +22,8 @@ const Home = () => {
                 <StorytellingSection />
             </div>
             
+            <HeroProductIntro />
+            <NmfeScroll />
             <BrandShowcase />
             <ProductScroll />
         </main>

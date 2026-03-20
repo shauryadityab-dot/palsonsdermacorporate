@@ -4,13 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const frameCount = 151;
+const frameCount = 178;
 
 // Helper to pad the frame index (e.g. 1 -> "001")
 const currentFrame = (index) => 
-  `/assets/sequence/ezgif-frame-${index.toString().padStart(3, '0')}.jpg`;
+  `/assets/sequence-nmfe/ezgif-frame-${index.toString().padStart(3, '0')}.jpg`;
 
-const ProductScroll = () => {
+const NmfeScroll = () => {
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const textRef0 = useRef(null);
@@ -64,13 +64,10 @@ const ProductScroll = () => {
             if (!images[index]) return;
             const img = images[index];
             
-            // Using ultra-crisp "object-contain" scaled down to 75% for a premium "floating frame" effect
+            // Using ultra-crisp "object-cover" scaled to fill full screen
             const hRatio = canvas.width / img.width;
             const vRatio = canvas.height / img.height;
-            let ratio = Math.min(hRatio, vRatio) * 0.75; 
-            
-            // Limit stretching to preserve absolute 720p clarity
-            if (ratio > 1.2) ratio = 1.2;
+            let ratio = Math.max(hRatio, vRatio); // Object-cover behavior
             
             // Force high-quality interpolation
             context.imageSmoothingEnabled = true;
@@ -177,8 +174,6 @@ const ProductScroll = () => {
             }
         });
 
-        // Background Color Transition removed to maintain premium white background
-
         // 90% - In by 85%
         gsap.to(textRef90.current, {
             opacity: 1, 
@@ -207,7 +202,7 @@ const ProductScroll = () => {
   }, [loaded, images]);
 
   return (
-    <section ref={containerRef} className="relative w-full h-[400vh]" style={{ backgroundColor: "#ffffff" }}>
+    <section ref={containerRef} className="relative w-full h-[600vh]" style={{ backgroundColor: "#ffffff" }}>
       
       {/* Loading State Overlay */}
       {!loaded && (
@@ -223,38 +218,38 @@ const ProductScroll = () => {
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         
         {/* HTML5 Canvas */}
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-contain pointer-events-none"></canvas>
+        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-cover pointer-events-none"></canvas>
         
-        {/* Text Overlays - Luxury Minimal Apple Style (Light Theme) */}
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none px-4 text-center mix-blend-difference text-white">
+        {/* Text Overlays - Luxury Minimal Apple Style (Green Theme) */}
+        <div className="absolute inset-0 z-20 pointer-events-none text-[#1a3b2b]">
             
-            {/* 0% Intro Text */}
-            <div ref={textRef0} className="absolute inset-0 flex flex-col items-center justify-center">
-                <h2 className="text-4xl md:text-7xl font-serif mb-4 tracking-tight drop-shadow-xl">Q-SERA</h2>
-                <p className="text-sm md:text-base tracking-[0.3em] uppercase origin-center font-sans font-medium drop-shadow-lg">
-                  Advanced Hair Science
+            {/* 0% Intro Text (Left) */}
+            <div ref={textRef0} className="absolute inset-y-0 left-0 w-full md:w-1/2 flex flex-col items-start justify-center px-8 md:pl-24 text-left">
+                <h2 className="text-4xl md:text-7xl font-serif mb-4 tracking-tight drop-shadow-[0_4px_20px_rgba(255,255,255,0.7)]">NMF E LOTION</h2>
+                <p className="text-sm md:text-base tracking-[0.3em] uppercase font-sans font-medium drop-shadow-[0_2px_10px_rgba(255,255,255,0.7)]">
+                  Intensive Hydration
                 </p>
             </div>
 
-            {/* 30% Formation Text */}
-            <div ref={textRef30} className="absolute inset-0 flex flex-col items-center justify-center opacity-0 translate-y-12">
-                <h3 className="text-3xl md:text-6xl font-serif tracking-tight drop-shadow-xl mb-4">Reduces Hair Fall</h3>
-                <p className="text-xs md:text-sm tracking-[0.2em] uppercase border-b-2 pb-1 font-sans font-medium drop-shadow-lg">
-                  Clinically Proven Efficacy
+            {/* 30% Formation Text (Right) */}
+            <div ref={textRef30} className="absolute inset-y-0 right-0 w-full md:w-1/2 flex flex-col items-end justify-center px-8 md:pr-24 text-right opacity-0 translate-y-12">
+                <h3 className="text-3xl md:text-6xl font-serif tracking-tight drop-shadow-[0_4px_20px_rgba(255,255,255,0.7)] mb-4">Restores Moisture</h3>
+                <p className="text-xs md:text-sm tracking-[0.2em] uppercase border-b-2 pb-1 font-sans font-medium drop-shadow-[0_2px_10px_rgba(255,255,255,0.7)]">
+                  Dermatologically Tested
                 </p>
             </div>
 
-            {/* 60% Ingredients Text */}
-            <div ref={textRef60} className="absolute inset-0 flex flex-col items-center justify-center opacity-0 translate-y-12">
-                <h3 className="text-3xl md:text-6xl font-serif tracking-tight max-w-3xl leading-[1.1] drop-shadow-xl">
-                  Powered by Peptides<br/><span className="italic font-light opacity-80">& Redensyl</span>
+            {/* 60% Ingredients Text (Left) */}
+            <div ref={textRef60} className="absolute inset-y-0 left-0 w-full md:w-1/2 flex flex-col items-start justify-center px-8 md:pl-24 text-left opacity-0 translate-y-12">
+                <h3 className="text-3xl md:text-6xl font-serif tracking-tight max-w-3xl leading-tight drop-shadow-[0_4px_20px_rgba(255,255,255,0.7)]">
+                  Nourishing Formula<br/><span className="italic font-light opacity-80">& Lasting Softness</span>
                 </h3>
             </div>
 
-            {/* 90% Final Product Text */}
+            {/* 90% Final Product Text (Center) */}
             <div ref={textRef90} className="absolute inset-0 flex flex-col items-center justify-center opacity-0 translate-y-12 mt-[30vh]">
-                <h3 className="text-4xl md:text-7xl font-serif tracking-tight drop-shadow-xl leading-[1]">
-                  Stronger.<br/>Fuller.<br/>Healthier Hair.
+                <h3 className="text-4xl md:text-7xl font-serif tracking-tight drop-shadow-[0_4px_20px_rgba(255,255,255,0.7)] leading-tight text-center">
+                  Healthy.<br/>Glowing.<br/>Skin.
                 </h3>
             </div>
 
@@ -264,4 +259,4 @@ const ProductScroll = () => {
   );
 };
 
-export default ProductScroll;
+export default NmfeScroll;
