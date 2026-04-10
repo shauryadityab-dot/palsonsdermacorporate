@@ -23,9 +23,10 @@ const Home = () => {
             </div>
             
             <HeroProductIntro />
-            <NmfeScroll />
+            
             <BrandShowcase />
-            <ProductScroll />
+            <NmfeScroll />
+            {/* <ProductScroll /> */}
         </main>
     );
 };
