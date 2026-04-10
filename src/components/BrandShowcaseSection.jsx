@@ -39,7 +39,7 @@ const BrandShowcaseSection = ({ brand, isEven }) => {
       
       {/* Sticky Left Sidebar (Brand Info) */}
       <div className="w-full md:w-5/12 lg:w-1/3 relative z-20 border-b md:border-b-0 md:border-r border-black/10">
-        <div className="md:sticky md:top-0 md:h-screen flex flex-col justify-center p-8 md:p-12 lg:p-16">
+        <div className="md:sticky md:top-0 md:h-screen flex flex-col pt-32 pb-12 p-8 md:p-12 lg:p-16 overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <h2 className="text-5xl lg:text-7xl xl:text-8xl font-serif mb-4 tracking-tight text-black">{brand.name}</h2>
           <p className="text-lg lg:text-xl font-mono uppercase tracking-[0.1em] lg:tracking-[0.2em] mb-8 text-black/50">{brand.tagline}</p>
           

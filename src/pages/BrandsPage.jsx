@@ -90,7 +90,7 @@ const BrandsPage = () => {
 
     return (
         <div className="bg-[#fdfdfd] min-h-screen">
-            <header className="pt-32 pb-24 text-center border-b border-black/10 bg-white relative z-50 shadow-sm">
+            <header className="pt-32 pb-24 text-center border-b border-black/10 bg-white relative z-10 shadow-sm">
                 <h1 className="text-5xl md:text-8xl font-serif mb-6 text-black tracking-tight drop-shadow-sm">Our Portfolio</h1>
                 <p className="max-w-2xl mx-auto text-black/60 font-mono text-sm uppercase tracking-widest">
                     Pioneering solutions across dermatological spectrums.
