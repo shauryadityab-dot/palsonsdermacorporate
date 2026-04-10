@@ -21,10 +21,8 @@ const Home = () => {
             <div className="relative w-full z-[3]">
                 <StorytellingSection />
             </div>
-            
-            <HeroProductIntro />
-            
             <BrandShowcase />
+            <HeroProductIntro />
             <NmfeScroll />
             {/* <ProductScroll /> */}
         </main>
